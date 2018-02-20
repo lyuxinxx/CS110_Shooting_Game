@@ -3,15 +3,15 @@
     * Github URL
     * Project Demo Presentation as Google Slide URL
 
-#Project Title
-##CS 110 Final Project
-###Semester, Year
+# Project Title
+## CS 110 Final Project
+### Semester, Year
 
 [https://github.com/<repo>](#)
 [link to demo presentation slides](#)
 
-###Team:
-####Team Names
+### Team:
+#### Team Names
 
 ***
 
