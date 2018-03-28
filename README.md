@@ -30,7 +30,22 @@ The object of the project is to utilize the pygame library along with other buil
 ***        
 
 ## Program Design
-* TBD
+
+### List of classes
+
+* **Plane** - A class that defines the plane - the active object the user can control to move in four directions to aviod obstacles and shoot enermies. It contains the image filename, the image and location of the plane, along with methods including moveLeft(), moveRight(), moveUp(), moveDown(), shoot() and collide(). The game is over when the plane collides with obstacles.
+
+
+* **Enermy** - A class that defines the enermies that emerge on the other side of the screen and can be shoot by the plane. It contains the image filename, the image and its location, along with methods including moveFd() and kill(). 
+
+
+* **Bullet** - A class that defines the bullets shoot by the plane. It contains the image filename, the image and its location. 
+
+
+* **Rock** - A class that defines the rocks coming from the other side of the screen. Rocks can not be shoot and the plane has to avoid running into them. It consists of the filename, the image, the location and moveFd() method.
+
+
+* **Controller** - A class that defines the “rules” and logic of the interlocking relationships between the other classes and UI, as well as establishes the data permanence of the high score, the sound effects and musical playback, and opens the actual game window itself. Key bindings and refresh rate are established here, and it calls each of the prior classes and their UI elements to “load” them when ran.
 
 ***
 
