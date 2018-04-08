@@ -33,7 +33,7 @@ The object of the project is to utilize the pygame library along with other buil
 
 ### List of classes
 
-* **Plane** - A class that defines the plane - the active object the user can control to move in four directions to aviod obstacles and shoot enermies. It contains the image filename, the image and location of the plane, along with methods including moveLeft(), moveRight(), moveUp(), moveDown(), shoot() and collide(). The game is over when the plane collides with obstacles.
+* **Player** - A class that defines the player - it is the active object the user can control to move in four directions to aviod obstacles and shoot enermies. It contains the image filename, the image and location of the plane, along with methods including moveLeft(), moveRight(), moveUp(), moveDown(), shoot() and collide(). The game is over when the plane collides with obstacles.
 
 
 * **Enermy** - A class that defines the enermies that emerge on the other side of the screen and can be shoot by the plane. It contains the image filename, the image and its location, along with methods including moveFd() and kill(). 
@@ -45,7 +45,10 @@ The object of the project is to utilize the pygame library along with other buil
 * **Rock** - A class that defines the rocks coming from the other side of the screen. Rocks can not be shoot and the plane has to avoid running into them. It consists of the filename, the image, the location and moveFd() method.
 
 
-* **Controller** - A class that defines the “rules” and logic of the interlocking relationships between the other classes and UI, as well as establishes the data permanence of the high score, the sound effects and musical playback, and opens the actual game window itself. Key bindings and refresh rate are established here, and it calls each of the prior classes and their UI elements to “load” them when ran.
+* **GameMenu** - A class that defines the title screen, where users can interact with start button and quit button. It is able to track the mouse and keyboard movement and inputs. Start button initializes the game and quit button will terminate the game process.
+
+
+* **MenuItems** - A class that defines the items appear in th etitle screen. It cantains background color, font and color of the buttons.
 
 ***
 
@@ -54,7 +57,7 @@ The object of the project is to utilize the pygame library along with other buil
     * Example:
 ### Software Lead - Runzhuo Chi
 
-Worked as integration specialist by helping organize the code for the main game into the proper MVC format, which allowed all portions of the code to be run from a single file. He worked very closely with the back end to develop the high-score database functionality, as well as establish the win- and fail-states for the main game. He also lead the implementation of the ‘sprite’ and ‘group’ classes of pygame into the back end code.
+Worked as integration specialist by helping organize the code for the main game into the proper format, which allowed all portions of the code to be run from a single file. Work very closely with the back end to develop the classes functionality, as well as establish the win- and fail-states for the main game. She also lead the implementation of the ‘sprite’ and ‘group’ classes of pygame into the back end code.
 
 ### Front End Specialist - Jinhua Xie
 
