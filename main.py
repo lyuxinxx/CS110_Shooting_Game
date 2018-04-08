@@ -13,7 +13,7 @@ def setSpeed():
     return (8 + t/5, 4 + t/5)
 
 
-def main():
+def rungame():
     pygame.init()
 
     # ---Create the window
@@ -117,4 +117,4 @@ def main():
         
     pygame.quit()
     
-main()
+rungame()
