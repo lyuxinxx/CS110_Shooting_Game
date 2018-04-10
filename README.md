@@ -31,7 +31,7 @@ The object of the project is to utilize the pygame library along with other buil
 
 ## Program Design
 ### Class and File Relations(Flowchart)
-![image](http://github.com/binghamtonuniversity-cs110/final-project-spr18-py-pandas/raw/master/flowchart.png)
+![image](https://github.com/binghamtonuniversity-cs110/final-project-spr18-py-pandas/raw/master/flowchart.png)
 
 ### List of classes
 
