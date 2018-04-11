@@ -1,6 +1,8 @@
-import random
 import pygame
+import random
 
+WHITE = (255, 255, 255)
+BLACK = (0, 0, 0)
 screen_width = 700
 screen_height = 400
 
@@ -12,9 +14,9 @@ class Rock(pygame.sprite.Sprite):
         """
             Initiate the rocks.
         """
-        super().__init__()
-        self.image = pygame.image.load("rock.png").convert()
-        self.image.set_colorkey((0,0,0))
+        pygame.sprite.Sprite.__init__(self)
+        self.image = pygame.image.load("image\\comet.png").convert()
+        self.image.set_colorkey(BLACK)
         self.rect = self.image.get_rect()
         self.rect.x = screen_width
         self.rect.y = random.randrange(screen_height)

@@ -1,6 +1,8 @@
 import pygame
 import random
 
+WHITE = (255, 255, 255)
+BLACK = (0, 0, 0)
 screen_width = 700
 screen_height = 400
 
@@ -12,9 +14,9 @@ class Enemy(pygame.sprite.Sprite):
         """
             Initiate enemies.
         """
-        super().__init__()
-        self.image = pygame.image.load("enemy.png")
-        self.image.set_colorkey((255,255,255))
+        pygame.sprite.Sprite.__init__(self)
+        self.image = pygame.image.load("image\\lander.png")
+        self.image.set_colorkey(WHITE)
         self.rect = self.image.get_rect()
         self.rect.x = screen_width
         self.rect.y = random.randrange(screen_height)
