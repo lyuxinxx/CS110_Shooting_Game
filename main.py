@@ -13,6 +13,7 @@ BLACK = (0, 0, 0)
 screen_width = 700
 screen_height = 400
 
+
 class GUI:
     def __init__(self):
         pygame.init()
@@ -147,7 +148,6 @@ class GUI:
             self.best_score = self.font.render("Best: "+ str(self.best), True, WHITE)
             #if self.score > self.best:
              #   json.dumps(self.score)
-
             
             # redraw the screen
             self.screen.blit(self.bg_image,(0,0))
@@ -156,26 +156,27 @@ class GUI:
             self.all_sprites_list.draw(self.screen)
             pygame.display.flip()
             self.clock.tick(60)
-            
-            
-        pygame.quit()
+
+        pygame.init()
 
 
-# driver
+
+# ---driver---
 def main():
-    main_window = GUI()
-    
+
+    if __name__ == "__main__":
+
+        pygame.init()
+
+        screen = pygame.display.set_mode((700, 400), 0, 32)
+
+        menu_items = ('Start', 'Quit')
+        funcs = {'Start': GUI,
+              'Quit': pygame.quit}
+
+        pygame.display.set_caption('Game Menu')
+        gm = GameMenu(screen, funcs.keys(), funcs)
+        gm.run()
+   
 main()
-"""
-if __name__ == "__main__":
 
-    screen = pygame.display.set_mode((640, 480), 0, 32)
-
-    menu_items = ('Start', 'Quit')
-    funcs = {'Start': main,
-             'Quit': pygame.quit}
-
-    pygame.display.set_caption('Game Menu')
-    gm = GameMenu(screen, funcs.keys(), funcs)
-    gm.run()
-"""
