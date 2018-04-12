@@ -3,21 +3,15 @@ import MenuItem
 from GameMenu import *
 import player
 import bullets
-import enemy
+import enemies
 import rocks
 import time
-
+import json
 
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 screen_width = 700
 screen_height = 400
-
-
-def setSpeed():
-    t = pygame.time.get_ticks()
-    return (8 + t**0.8/800, 4 + t**0.8/800)
-
 
 class GUI:
     def __init__(self):
@@ -26,7 +20,14 @@ class GUI:
         # Create the window
         self.screen = pygame.display.set_mode((screen_width,screen_height))
         self.bg_image = pygame.image.load("image\\bg.png").convert()
-        self.font = pygame.font.SysFont("font",18,False,False)
+
+        # Font
+        self.font = pygame.font.SysFont("font",20)
+
+        # Music
+        self.bgm = pygame.mixer.music.load("sound\monkeys.wav")
+        pygame.mixer.music.play(1)
+        self.bullet_sound = pygame.mixer.Sound("sound\laser5.ogg")
         
         # Sprite lists
         self.all_sprites_list = pygame.sprite.Group()
@@ -37,23 +38,29 @@ class GUI:
         # Create the sprites
         self.player = player.Player()
         self.all_sprites_list.add(self.player)
+
+        # initiate the time
+        self.start_time = time.time()
+        self.pass_time = 0
+        self.last_time = 0
         
-        self.bgm = pygame.mixer.music.load("sound\monkeys.wav")
-        pygame.mixer.music.play(1)
-        self.bullet_sound = pygame.mixer.Sound("sound\laser5.ogg")
+        #initiate the score:
+        self.hit_score = 0
+        self.total_score = 0
+        self.best = 0
 
         self.clock = pygame.time.Clock()
-        self.start_time = time.time()
-        self.last_time = 0
+        
         done = False
+
         # main loop
         while not done:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     done = True
                     
-                # move the plane
                 elif event.type == pygame.KEYDOWN:
+                    # move the plane
                     if event.key == pygame.K_LEFT:
                         self.player.x_speed = -5
                     if event.key == pygame.K_RIGHT:
@@ -62,8 +69,11 @@ class GUI:
                         self.player.y_speed = -5
                     if event.key == pygame.K_DOWN:
                        self.player.y_speed = 5
+                    # shoot
                     if event.key == pygame.K_SPACE:
-                        new_bullet = bullets.Bullet(self.player.rect.x + 35, self.player.rect.y+15)
+                        bullet_x = self.player.rect.x + self.player.image.get_width()
+                        bullet_y = self.player.rect.y + 8
+                        new_bullet = bullets.Bullet(bullet_x, bullet_y)
                         self.all_sprites_list.add(new_bullet)
                         self.bullet_list.add(new_bullet)
                         self.bullet_sound.play()   
@@ -75,50 +85,54 @@ class GUI:
                         
             # set the difficulty
             self.pass_time = time.time() - self.start_time
-            self.enemy_speed = self.pass_time**0.6 + 3
-            self.rock_speed =self.pass_time**0.6 + 6
+            self.enemy_speed = self.pass_time ** 0.6 + 3
+            self.rock_speed = self.pass_time ** 0.6 + 6
 
+            # create rocks and enemies
             if self.pass_time < 30:
                 if time.time() - self.last_time > 0.75:
-                    new_enemy = enemy.Enemy()
+                    new_enemy = enemies.Enemy(self.enemy_speed)
                     self.enemy_list.add(new_enemy)
                     self.all_sprites_list.add(new_enemy)
-                    new_rock = rocks.Rock()
+                    new_rock = rocks.Rock(self.rock_speed)
                     self.rock_list.add(new_rock)
                     self.all_sprites_list.add(new_rock)
                     self.last_time = time.time()
             elif self.pass_time < 50:
                 if time.time() - self.last_time > 0.5:
-                    new_enemy = enemy.Enemy()
+                    new_enemy = enemies.Enemy(self.enemy_speed)
                     self.enemy_list.add(new_enemy)
                     self.all_sprites_list.add(new_enemy)
-                    new_rock = rocks.Rock()
+                    new_rock = rocks.Rock(self.rock_speed)
                     self.rock_list.add(new_rock)
                     self.all_sprites_list.add(new_rock)
                     self.last_time = time.time()
             elif self.pass_time < 75:
                 if time.time() - self.last_time > 0.25:
-                    new_enemy = enemy.Enemy()
+                    new_enemy = enemies.Enemy(self.enemy_speed)
                     self.enemy_list.add(new_enemy)
                     self.all_sprites_list.add(new_enemy)
-                    new_rock = rocks.Rock()
+                    new_rock = rocks.Rock(self.rock_speed)
                     self.rock_list.add(new_rock)
                     self.all_sprites_list.add(new_rock)
                     self.last_time = time.time()
-                        
+
             #--- Game Logic
-            if pygame.sprite.spritecollideany(self.player, self.enemy_list):
-                done = True       
-            if pygame.sprite.spritecollideany(self.player, self.rock_list):
-                done = True
+            collide_list1 = pygame.sprite.spritecollideany(self.player, self.enemy_list) 
+            collide_list2 = pygame.sprite.spritecollideany(self.player, self.rock_list)
+            if collide_list1 or collide_list2:
+                 done = True
+                
     
             # update classes
-            self.bullet_list.update()
-            self.player.update()
-            self.rock_list.update(self.rock_speed)
-            self.enemy_list.update(self.enemy_speed)
+            self.all_sprites_list.update()
+            
             for bullet in self.bullet_list:
                 hit_enemy_list = pygame.sprite.spritecollide(bullet, self.enemy_list, True)
+                for enemy in hit_enemy_list:
+                    self.hit_score += 2
+                    self.bullet_list.remove(bullet)
+                    self.all_sprites_list.remove(bullet)
                 hit_rock_list = pygame.sprite.spritecollide(bullet, self.rock_list, False)
                 for rock in hit_rock_list:
                     self.bullet_list.remove(bullet)
@@ -127,15 +141,22 @@ class GUI:
                     self.bullet_list.remove(bullet)
                     self.all_sprites_list.remove(bullet)
                 
-            # score   
-            self.score = self.font.render("Score: "+ str(self.pass_time), True, (0,0,0))
+            # score
+            self.total_score = int(self.hit_score + self.pass_time)
+            self.score = self.font.render("Score: "+ str(self.total_score), True, WHITE)
+            self.best_score = self.font.render("Best: "+ str(self.best), True, WHITE)
+            #if self.score > self.best:
+             #   json.dumps(self.score)
+
             
             # redraw the screen
             self.screen.blit(self.bg_image,(0,0))
-            self.screen.blit(self.score, (0, 5))
+            self.screen.blit(self.score, (screen_width - 100, 5))
+            self.screen.blit(self.best_score, (screen_width - 100, 20))
             self.all_sprites_list.draw(self.screen)
             pygame.display.flip()
             self.clock.tick(60)
+            
             
         pygame.quit()
 
@@ -143,17 +164,18 @@ class GUI:
 # driver
 def main():
     main_window = GUI()
-
+    
 main()
+"""
+if __name__ == "__main__":
 
-#if __name__ == "__main__":
+    screen = pygame.display.set_mode((640, 480), 0, 32)
 
- #   screen = pygame.display.set_mode((640, 480), 0, 32)
+    menu_items = ('Start', 'Quit')
+    funcs = {'Start': main,
+             'Quit': pygame.quit}
 
- #   menu_items = ('Start', 'Quit')
- #   funcs = {'Start': main,
- #            'Quit': pygame.quit}
-
- #   pygame.display.set_caption('Game Menu')
- #   gm = GameMenu(screen, funcs.keys(), funcs)
- #   gm.run()
+    pygame.display.set_caption('Game Menu')
+    gm = GameMenu(screen, funcs.keys(), funcs)
+    gm.run()
+"""

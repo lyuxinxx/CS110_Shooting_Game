@@ -1,5 +1,6 @@
 import pygame
 
+
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 screen_width = 700
@@ -9,7 +10,7 @@ class Bullet(pygame.sprite.Sprite):
     """
         This class represents the bullet.
     """
-    def __init__(self,x,y,width = 8, height = 4):
+    def __init__(self, x, y):
         """
             Initiate the bullet.
         """
@@ -19,11 +20,12 @@ class Bullet(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.x = x
         self.rect.y = y
+        self.speed = 13
         
     def update(self):
         """
             Move the bullets.
         """
-        self.rect.x += 10 
+        self.rect.x += self.speed 
         if self.rect.right > screen_width:
             self.kill()

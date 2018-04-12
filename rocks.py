@@ -10,7 +10,7 @@ class Rock(pygame.sprite.Sprite):
     """
         This class represents the rocks.
     """
-    def __init__(self):
+    def __init__(self, speed):
         """
             Initiate the rocks.
         """
@@ -19,12 +19,13 @@ class Rock(pygame.sprite.Sprite):
         self.image.set_colorkey(BLACK)
         self.rect = self.image.get_rect()
         self.rect.x = screen_width
-        self.rect.y = random.randrange(screen_height)
-
-    def update(self, speed):
+        self.rect.y = random.randrange(screen_height - self.image.get_height())
+        self.speed = speed
+        
+    def update(self):
         """
             Update the rocks' position.
         """
-        self.rect.x -= speed
+        self.rect.x -= self.speed
         if self.rect.right < 0:
             self.kill()

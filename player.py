@@ -4,6 +4,8 @@ WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 screen_width = 700
 screen_height = 400
+init_x = 0
+init_y = 200
 
 class Player(pygame.sprite.Sprite):
     """
@@ -18,8 +20,8 @@ class Player(pygame.sprite.Sprite):
         self.image = pygame.image.load("image\\space-shuttle-1.png").convert()
         self.image.set_colorkey(BLACK)
         self.rect = self.image.get_rect()
-        self.rect.x = 0
-        self.rect.y = 200
+        self.rect.x = init_x 
+        self.rect.y = init_y
         self.x_speed = 0
         self.y_speed = 0
         
@@ -38,3 +40,7 @@ class Player(pygame.sprite.Sprite):
             self.rect.y = screen_height
         if self.rect.y > screen_height:
             self.rect.y = 0
+
+    def reset(self):
+        self.rect.x = init_x
+        self.rect.y = init_y
