@@ -1,18 +1,21 @@
 import pygame
 from MenuItem import *
 
+pygame.init()
+pygame.display.set_mode((700, 400), 0, 32)
 WHITE = (255, 255, 255)
 RED = (255, 0, 0)
 BLACK = (0, 0, 0)
+img = pygame.image.load("image\\bgtitle.png").convert()
 
 class GameMenu():
-    def __init__(self, screen, items, funcs, bg_color = BLACK, font = None, font_size = 30,
+    def __init__(self, screen, items, funcs, bg_image = img, font = None, font_size = 30,
                  font_color = WHITE):
         self.screen = screen
         self.scr_width = self.screen.get_rect().width
         self.scr_height = self.screen.get_rect().height
 
-        self.bg_color = bg_color
+        self.bg_image = bg_image
         self.clock = pygame.time.Clock()
 
         self.funcs = funcs
@@ -98,14 +101,17 @@ class GameMenu():
                             self.funcs[item.text]()
 
             if pygame.mouse.get_rel() != (0, 0):
+                pygame.init()
+                pygame.display.set_mode((700, 400), 0, 32)
                 self.mouse_is_visible = True
                 self.cur_item = None
+                
             #else:
                 #print("bye")
 
             self.set_mouse_visibility()
 
-            self.screen.fill(self.bg_color)
+            self.screen.blit(self.bg_image,(0,0))
 
             for item in self.items:
                 if self.mouse_is_visible:

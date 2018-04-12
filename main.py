@@ -18,7 +18,6 @@ def setSpeed():
     t = pygame.time.get_ticks()
     return (8 + t**0.8/800, 4 + t**0.8/800)
 
-
 class GUI:
     def __init__(self):
         pygame.init()
@@ -128,7 +127,7 @@ class GUI:
                     self.all_sprites_list.remove(bullet)
                 
             # score   
-            self.score = self.font.render("Score: "+ str(self.pass_time), True, (0,0,0))
+            self.score = self.font.render("Score: "+ str(self.pass_time), True, (255,255,255))
             
             # redraw the screen
             self.screen.blit(self.bg_image,(0,0))
@@ -137,23 +136,39 @@ class GUI:
             pygame.display.flip()
             self.clock.tick(60)
             
-        pygame.quit()
+        pygame.init()
 
 
 # driver
 def main():
-    main_window = GUI()
+    if __name__ == "__main__":
+
+        pygame.init()
+
+        screen = pygame.display.set_mode((700, 400), 0, 32)
+
+        menu_items = ('Start', 'Quit')
+        funcs = {'Start': GUI,
+              'Quit': pygame.quit}
+
+        pygame.display.set_caption('Game Menu')
+        gm = GameMenu(screen, funcs.keys(), funcs)
+        gm.run()
+    #main_window = GUI()
 
 main()
 
 #if __name__ == "__main__":
 
- #   screen = pygame.display.set_mode((640, 480), 0, 32)
+    #pygame.init()
 
- #   menu_items = ('Start', 'Quit')
- #   funcs = {'Start': main,
- #            'Quit': pygame.quit}
+    #screen = pygame.display.set_mode((640, 480), 0, 32)
 
- #   pygame.display.set_caption('Game Menu')
- #   gm = GameMenu(screen, funcs.keys(), funcs)
- #   gm.run()
+    #menu_items = ('Start', 'Quit')
+    #funcs = {'Start': GUI,
+             #'Quit': pygame.quit}
+
+    #pygame.display.set_caption('Game Menu')
+    
+    #gm = GameMenu(screen, funcs.keys(), funcs)
+    #gm.run()
