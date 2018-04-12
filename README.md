@@ -38,13 +38,13 @@ The object of the project is to utilize the pygame library along with other buil
 * **Player** - A class that defines the player - it is the active object the user can control to move in four directions to aviod obstacles and shoot enermies. It contains the image, the location of the plane and its speed, along with methods including update() to move the plane in the screen. The game is over when the plane collides with obstacles.
 
 
-* **Enermy** - A class that defines the enermies that emerge on the other side of the screen and can be shoot by the plane. It contains the image and its location, along with methods including update() to move forward. 
+* **Enemies** - A class that defines the enermies that emerge on the other side of the screen and can be shoot by the plane. It contains the image and its location and speed, along with methods including update() to move forward. 
 
 
-* **Bullets** - A class that defines the bullets shoot by the plane. It contains the image and its location, along with the method update() to move forward. 
+* **Bullets** - A class that defines the bullets shoot by the plane. It contains the image, its location and speed, along with the method update() to move forward. 
 
 
-* **Rocks** - A class that defines the rocks coming from the other side of the screen. Rocks can not be shoot and the player has to avoid running into them. It consists of the image, the location and update() method.
+* **Rocks** - A class that defines the rocks coming from the other side of the screen. Rocks can not be shoot and the player has to avoid running into them. It consists of the image, the location, speed and update() method.
 
 
 * **GameMenu** - A class that defines the title screen, where users can interact with start button and quit button. It is able to track the mouse and keyboard movement and inputs. Start button initializes the game and quit button will terminate the game process.
