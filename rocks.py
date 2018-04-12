@@ -10,7 +10,7 @@ class Rock(pygame.sprite.Sprite):
     """
         This class represents the rocks.
     """
-    def __init__(self, speed):
+    def __init__(self, speed = 6):
         """
             Initiate the rocks.
         """

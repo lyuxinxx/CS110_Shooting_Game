@@ -1,7 +1,7 @@
 import pygame
 import random
 from bullets import *
-from enemy import *
+from enemies import *
 from GameMenu import *
 from MenuItem import *
 from player import *
@@ -40,7 +40,7 @@ def main():
     print("=====Pass=====")
     
     print("=====Standard Function Test=====")
-    test_enemy.update(10)
+    test_enemy.update()
     assert True
     print("=====Pass=====")
     
@@ -116,7 +116,7 @@ def main():
     print("=====Pass=====")
     
     print("=====Standard Function Test=====")
-    test_rock.update(12)
+    test_rock.update()
     assert True
     print("=====Pass=====")
 

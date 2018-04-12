@@ -10,7 +10,7 @@ class Enemy(pygame.sprite.Sprite):
     """
         This class represents the enermy.
     """
-    def __init__(self, speed):
+    def __init__(self, speed = 3):
         """
             Initiate enemies.
         """
