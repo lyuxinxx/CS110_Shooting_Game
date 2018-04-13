@@ -7,12 +7,12 @@ import enemies
 import rocks
 import time
 import json
+import scoreData
 
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 screen_width = 700
 screen_height = 400
-
 
 class GUI:
     def __init__(self):
@@ -21,6 +21,7 @@ class GUI:
         # Create the window
         self.screen = pygame.display.set_mode((screen_width,screen_height))
         self.bg_image = pygame.image.load("image\\bg.png").convert()
+        pygame.display.set_caption("Space Shooter 2")
 
         # Font
         self.font = pygame.font.SysFont("font",20)
@@ -48,7 +49,7 @@ class GUI:
         #initiate the score:
         self.hit_score = 0
         self.total_score = 0
-        self.best = 0
+        self.score_data = scoreData.ScoreData()
 
         self.clock = pygame.time.Clock()
         
@@ -61,6 +62,14 @@ class GUI:
                     done = True
                     
                 elif event.type == pygame.KEYDOWN:
+                    # shoot
+                    if event.key == pygame.K_SPACE:
+                        bullet_x = self.player.rect.x + self.player.image.get_width()
+                        bullet_y = self.player.rect.y + 8
+                        new_bullet = bullets.Bullet(bullet_x, bullet_y)
+                        self.all_sprites_list.add(new_bullet)
+                        self.bullet_list.add(new_bullet)
+                        self.bullet_sound.play()
                     # move the plane
                     if event.key == pygame.K_LEFT:
                         self.player.x_speed = -5
@@ -70,14 +79,6 @@ class GUI:
                         self.player.y_speed = -5
                     if event.key == pygame.K_DOWN:
                        self.player.y_speed = 5
-                    # shoot
-                    if event.key == pygame.K_SPACE:
-                        bullet_x = self.player.rect.x + self.player.image.get_width()
-                        bullet_y = self.player.rect.y + 8
-                        new_bullet = bullets.Bullet(bullet_x, bullet_y)
-                        self.all_sprites_list.add(new_bullet)
-                        self.bullet_list.add(new_bullet)
-                        self.bullet_sound.play()   
                 elif event.type == pygame.KEYUP:
                     if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
                         self.player.x_speed = 0
@@ -144,10 +145,12 @@ class GUI:
                 
             # score
             self.total_score = int(self.hit_score + self.pass_time)
+            if self.total_score > self.score_data.best:
+                self.score_data.best = self.total_score
+                self.score_data.update()
             self.score = self.font.render("Score: "+ str(self.total_score), True, WHITE)
-            self.best_score = self.font.render("Best: "+ str(self.best), True, WHITE)
-            #if self.score > self.best:
-             #   json.dumps(self.score)
+            self.best_score = self.font.render("Best: "+ str(self.score_data.best), True, WHITE)
+
             
             # redraw the screen
             self.screen.blit(self.bg_image,(0,0))
