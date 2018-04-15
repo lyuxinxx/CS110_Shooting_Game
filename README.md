@@ -31,7 +31,7 @@ The object of the project is to utilize the pygame library along with other buil
 
 ## Program Design
 ### Class and File Relations(Flowchart)
-![image](https://github.com/binghamtonuniversity-cs110/final-project-spr18-py-pandas/raw/master/image/flowchart.png)
+![image](https://github.com/binghamtonuniversity-cs110/final-project-spr18-py-pandas/raw/master/assets/flowchart.png)
 
 ### List of classes
 
@@ -46,6 +46,7 @@ The object of the project is to utilize the pygame library along with other buil
 
 * **Rocks** - A class that defines the rocks coming from the other side of the screen. Rocks can not be shoot and the player has to avoid running into them. It consists of the image, the location, speed and update() method.
 
+* **ScoreData** - A class that defines the best score record. It contains the file used to store score data, the best score read from the file and update() method to update the best record in the file .
 
 * **GameMenu** - A class that defines the title screen, where users can interact with start button and quit button. It is able to track the mouse and keyboard movement and inputs. Start button initializes the game and quit button will terminate the game process.
 
