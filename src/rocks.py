@@ -6,17 +6,17 @@ BLACK = (0, 0, 0)
 screen_width = 700
 screen_height = 400
 
-class Enemy(pygame.sprite.Sprite):
+class Rock(pygame.sprite.Sprite):
     """
-        This class represents the enermy.
+        This class represents the rocks.
     """
-    def __init__(self, speed = 3):
+    def __init__(self, speed = 6):
         """
-            Initiate enemies.
+            Initiate the rocks.
         """
         pygame.sprite.Sprite.__init__(self)
-        self.image = pygame.image.load("image\\lander.png")
-        self.image.set_colorkey(WHITE)
+        self.image = pygame.image.load("assets\\comet.png").convert()
+        self.image.set_colorkey(BLACK)
         self.rect = self.image.get_rect()
         self.rect.x = screen_width
         self.rect.y = random.randrange(screen_height - self.image.get_height())
@@ -24,7 +24,7 @@ class Enemy(pygame.sprite.Sprite):
         
     def update(self):
         """
-            Update the enermies' position.
+            Update the rocks' position.
         """
         self.rect.x -= self.speed
         if self.rect.right < 0:

@@ -6,7 +6,7 @@ pygame.display.set_mode((700, 400), 0, 32)
 WHITE = (255, 255, 255)
 RED = (255, 0, 0)
 BLACK = (0, 0, 0)
-img = pygame.image.load("image\\bgtitle.png").convert()
+img = pygame.image.load("assets\\bgtitle.png").convert()
 
 class GameMenu():
     def __init__(self, screen, items, funcs, bg_image = img, font = None, font_size = 30,

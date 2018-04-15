@@ -1,45 +1,42 @@
 import pygame
-import MenuItem
-from GameMenu import *
-import player
-import bullets
-import enemies
-import rocks
 import time
-import json
-import scoreData
+from GameMenu import *
+from src import player
+from src import bullets
+from src import enemies
+from src import rocks
+from src import scoreData
 
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 screen_width = 700
 screen_height = 400
 
-class GUI:
+
+class Controller:
     def __init__(self):
         pygame.init()
 
         # Create the window
         self.screen = pygame.display.set_mode((screen_width,screen_height))
-        self.bg_image = pygame.image.load("image\\bg.png").convert()
+        self.bg_image = pygame.image.load("assets\\bg.png").convert()
         pygame.display.set_caption("Space Shooter 2")
 
         # Font
         self.font = pygame.font.SysFont("font",20)
 
         # Music
-        self.bgm = pygame.mixer.music.load("sound\monkeys.wav")
+        self.bgm = pygame.mixer.music.load("assets\monkeys.wav")
         pygame.mixer.music.play(1)
-        self.bullet_sound = pygame.mixer.Sound("sound\laser5.ogg")
+        self.bullet_sound = pygame.mixer.Sound("assets\laser5.ogg")
         
         # Sprite lists
-        self.all_sprites_list = pygame.sprite.Group()
         self.enemy_list = pygame.sprite.Group()
         self.bullet_list = pygame.sprite.Group()
         self.rock_list = pygame.sprite.Group()
         
-        # Create the sprites
+        # Create the player
         self.player = player.Player()
-        self.all_sprites_list.add(self.player)
 
         # initiate the time
         self.start_time = time.time()
@@ -66,9 +63,7 @@ class GUI:
                     if event.key == pygame.K_SPACE:
                         bullet_x = self.player.rect.x + self.player.image.get_width()
                         bullet_y = self.player.rect.y + 8
-                        new_bullet = bullets.Bullet(bullet_x, bullet_y)
-                        self.all_sprites_list.add(new_bullet)
-                        self.bullet_list.add(new_bullet)
+                        self.bullet_list.add(bullets.Bullet(bullet_x, bullet_y))
                         self.bullet_sound.play()
                     # move the plane
                     if event.key == pygame.K_LEFT:
@@ -93,40 +88,30 @@ class GUI:
             # create rocks and enemies
             if self.pass_time < 30:
                 if time.time() - self.last_time > 0.75:
-                    new_enemy = enemies.Enemy(self.enemy_speed)
-                    self.enemy_list.add(new_enemy)
-                    self.all_sprites_list.add(new_enemy)
-                    new_rock = rocks.Rock(self.rock_speed)
-                    self.rock_list.add(new_rock)
-                    self.all_sprites_list.add(new_rock)
+                    self.enemy_list.add(enemies.Enemy(self.enemy_speed)) 
+                    self.rock_list.add(rocks.Rock(self.rock_speed))
                     self.last_time = time.time()
             elif self.pass_time < 50:
                 if time.time() - self.last_time > 0.5:
-                    new_enemy = enemies.Enemy(self.enemy_speed)
-                    self.enemy_list.add(new_enemy)
-                    self.all_sprites_list.add(new_enemy)
-                    new_rock = rocks.Rock(self.rock_speed)
-                    self.rock_list.add(new_rock)
-                    self.all_sprites_list.add(new_rock)
+                    self.enemy_list.add(enemies.Enemy(self.enemy_speed)) 
+                    self.rock_list.add(rocks.Rock(self.rock_speed))
                     self.last_time = time.time()
             elif self.pass_time < 75:
                 if time.time() - self.last_time > 0.25:
-                    new_enemy = enemies.Enemy(self.enemy_speed)
-                    self.enemy_list.add(new_enemy)
-                    self.all_sprites_list.add(new_enemy)
-                    new_rock = rocks.Rock(self.rock_speed)
-                    self.rock_list.add(new_rock)
-                    self.all_sprites_list.add(new_rock)
+                    self.enemy_list.add(enemies.Enemy(self.enemy_speed)) 
+                    self.rock_list.add(rocks.Rock(self.rock_speed))
                     self.last_time = time.time()
 
             #--- Game Logic
             collide_list1 = pygame.sprite.spritecollideany(self.player, self.enemy_list) 
             collide_list2 = pygame.sprite.spritecollideany(self.player, self.rock_list)
             if collide_list1 or collide_list2:
-                 done = True
+                pygame.time.delay(1000)
+                done = True
                 
     
             # update classes
+            self.all_sprites_list= pygame.sprite.Group((self.player,)+tuple(self.enemy_list)+tuple(self.rock_list)+tuple(self.bullet_list))
             self.all_sprites_list.update()
             
             for bullet in self.bullet_list:
@@ -174,7 +159,7 @@ def main():
         screen = pygame.display.set_mode((700, 400), 0, 32)
 
         menu_items = ('Start', 'Quit')
-        funcs = {'Start': GUI,
+        funcs = {'Start': Controller,
               'Quit': pygame.quit}
 
         pygame.display.set_caption('Game Menu')
