@@ -107,18 +107,15 @@ class Controller:
             collide_list1 = pygame.sprite.spritecollideany(self.player, self.enemy_list) 
             collide_list2 = pygame.sprite.spritecollideany(self.player, self.rock_list)
             if collide_list1 or collide_list2:
-                pygame.time.delay(1000)
-                done = True
-                game_over = True
-                
-            if game_over:
                 self.screen.fill(BLACK)
                 text = self.font.render("Game Over", True, WHITE)
                 text_rect = text.get_rect()
                 text_x = self.screen.get_width() / 2 - text_rect.width / 2
                 text_y = self.screen.get_height() / 2 - text_rect.height / 2
                 self.screen.blit(text, [text_x, text_y])
-                
+                pygame.display.flip()
+                pygame.time.delay(1000)
+                done = True
     
             # update classes
             self.all_sprites_list= pygame.sprite.Group((self.player,)+tuple(self.enemy_list)+tuple(self.rock_list)+tuple(self.bullet_list))
