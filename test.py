@@ -1,18 +1,18 @@
 import pygame
-import random
-from bullets import *
-from enemies import *
+import time
 from GameMenu import *
-from MenuItem import *
-from player import *
-from rocks import *
+from src import player as pl
+from src import bullets as bt
+from src import enemies as em
+from src import rocks as rk
+from src import scoreData
 from main import *
 
 def main():
     #test bullets model
     print("####### testing bullets model######")
     pygame.display.init()
-    test_bullet = Bullet(9,8)
+    test_bullet = bt.Bullet(9,8)
     
     print("=====Standard Initialization Test=====")
     assert test_bullet.rect.x == 9
@@ -32,7 +32,7 @@ def main():
     # test enemy model
     print("####### testing enemy model######")
 
-    test_enemy = Enemy()
+    test_enemy = em.Enemy()
 
     print("=====Standard Initialization Test=====")
     assert test_enemy.rect.x == screen_width
@@ -89,7 +89,7 @@ def main():
     print("####### testing player model######")
     pygame.display.init()
     pygame.display.set_mode((700, 400), 0, 32)
-    test_player = Player()
+    test_player = pl.Player()
     
     print("=====Standard Initialization Test=====")
     assert test_player.rect.x == 0
@@ -108,7 +108,7 @@ def main():
 
     #test rocks model
     print("####### testing player model######")
-    test_rock = Rock()
+    test_rock = rk.Rock()
     
     print("=====Standard Initialization Test=====")
     assert test_rock.rect.x == 700
