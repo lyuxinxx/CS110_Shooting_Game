@@ -6,6 +6,7 @@ from src import bullets
 from src import enemies
 from src import rocks
 from src import scoreData
+from HelpMenu import *
 
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
@@ -104,17 +105,19 @@ class Controller:
                     self.last_time = time.time()
 
             #--- Game Logic
+
+                
             collide_list1 = pygame.sprite.spritecollideany(self.player, self.enemy_list) 
             collide_list2 = pygame.sprite.spritecollideany(self.player, self.rock_list)
             if collide_list1 or collide_list2:
-                self.screen.fill(BLACK)
-                text = self.font.render("Game Over", True, WHITE)
-                text_rect = text.get_rect()
-                text_x = self.screen.get_width() / 2 - text_rect.width / 2
-                text_y = self.screen.get_height() / 2 - text_rect.height / 2
-                self.screen.blit(text, [text_x, text_y])
+                self.screen = pygame.display.set_mode((screen_width,screen_height))
+                self.bg_image = pygame.image.load("assets\\gameover.png").convert()
+                pygame.display.set_caption("GAME OVER")
+                self.font = pygame.font.SysFont("font",30)
+
+                self.screen.blit(self.bg_image,(0,0))
                 pygame.display.flip()
-                pygame.time.delay(1000)
+                time.sleep(2)
                 done = True
     
             # update classes
@@ -154,6 +157,13 @@ class Controller:
 
         pygame.init()
 
+    
+import sys
+
+def QuitGame():
+    pygame.quit()
+    sys.exit()
+
 
 
 # ---driver---
@@ -167,11 +177,11 @@ def main():
 
         menu_items = ('Start', 'Quit')
         funcs = {'Start': Controller,
-              'Quit': pygame.quit}
+                 'Help':HelpMenu,
+              'Quit': QuitGame}
 
         pygame.display.set_caption('Game Menu')
         gm = GameMenu(screen, funcs.keys(), funcs)
         gm.run()
    
 main()
-
