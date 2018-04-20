@@ -48,7 +48,9 @@ The object of the project is to utilize the pygame library along with other buil
 
 * **ScoreData** - A class that defines the best score record. It contains the file used to store score data, the best score read from the file and update() method to update the best record in the file .
 
-* **GameMenu** - A class that defines the title screen, where users can interact with start button and quit button. It is able to track the mouse and keyboard movement and inputs. Start button initializes the game and quit button will terminate the game process.
+* **GameMenu** - A class that defines the title screen, where users can interact with start button, help button and quit button. It is able to track the mouse and keyboard movement and inputs. Start button initializes the game and quit button will terminate the game process.
+
+* **HelpMenu** - A class that defines the help menu, by clicking on the help button, a page introducing the game and controls will show up for the user's reference.
 
 
 * **MenuItems** - A class that defines the items appear in th etitle screen. It cantains background color, font and color of the buttons.
@@ -57,7 +59,6 @@ The object of the project is to utilize the pygame library along with other buil
 
 ## Tasks and Responsibilities
 * You must outline the team member roles and who was responsible for each class/method, both individual and collaborative.
-    * Example:
 ### Software Lead - Runzhuo Chi
 
 Worked as integration specialist by helping organize the code for the main game into the proper format, which allowed all portions of the code to be run from a single file. Work very closely with the back end to develop the classes functionality, as well as establish the win- and fail-states for the main game. She also lead the implementation of the ‘sprite’ and ‘group’ classes of pygame into the back end code.
