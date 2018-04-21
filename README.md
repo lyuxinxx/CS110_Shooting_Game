@@ -5,11 +5,13 @@
 Example:
 # Pygame shooter game
 ## CS 110 Final Project
-### Fall,2018
+### Spring,2018
 
+### Link to Github Repo:
 [https://github.com/binghamtonuniversity-cs110/final-project-spr18-py-pandas.git](#)
 
-[link to demo presentation slides TBD](#)
+### Link to Presentation Slides:
+https://docs.google.com/presentation/d/12Tb9pJZSVkh1yvmBxMbkxDWFgUyJRNiqf-J5I8sy3Go/edit?usp=sharing(#)
 
 ### Team:
 #### PY pandas
