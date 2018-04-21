@@ -79,11 +79,11 @@ The back end specialist helped with the “Model” portion of BLOCKBUSTERS by w
 ### Menu Testing
 
 In this part of the test, the three functions of the main game menu will be tested: Start, Help and Quit. First, we run the main program to open the menu window. We then hover the mouse over each button to test the mouse selection function, as expected, the button turns red and italic. Then we press direction keys to test the keyboard selection function, each button can be “highlighted” as expected. As is shown in this screenshot:
-![image](https://github.com/binghamtonuniversity-cs110/final-project-spr18-py-pandas/assets/Screenshots/menuscreen.png)
+![image](https://github.com/binghamtonuniversity-cs110/final-project-spr18-py-pandas/raw/master/assets/Screenshots/menuscreen.png)
 We then click on the Start button on the menu. The game starts normally, and the background music starts to play, the score indicators, spaceship (player character), enemies and comets appeared on the screen.
-![image](https://github.com/binghamtonuniversity-cs110/final-project-spr18-py-pandas/assets/Screenshots/gamescreen.png)
+![image](https://github.com/binghamtonuniversity-cs110/final-project-spr18-py-pandas/raw/master/assets/Screenshots/gamescreen.png)
 When the game is in progress, by clicking on the X on the upper right corner of the window, we can return to the menu. Next, we click on the Help button, the help page showed up as expected, it stays visible for 2 seconds for the player to read the instructions. Then the window automatically switches back to the menu screen.
-![image](https://github.com/binghamtonuniversity-cs110/final-project-spr18-py-pandas/assets/Screenshots/helpscreen.png)
+![image](https://github.com/binghamtonuniversity-cs110/final-project-spr18-py-pandas/raw/master/assets/Screenshots/helpscreen.png)
 
 
 ### Game Testing
