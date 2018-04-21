@@ -1,17 +1,17 @@
 import pygame
 import time
 from GameMenu import *
+from HelpMenu import *
 from src import player as pl
 from src import bullets as bt
 from src import enemies as em
 from src import rocks as rk
 from src import scoreData
-from main import *
+from main_2 import *
 
 def main():
     #test bullets model
     print("####### testing bullets model######")
-    pygame.display.init()
     test_bullet = bt.Bullet(9,8)
     
     print("=====Standard Initialization Test=====")
@@ -20,13 +20,13 @@ def main():
     print("=====Pass=====")
     
     print("=====Standard Function Test=====")
-    test_bullet.update()
-    assert True
+    test_bullet.update() 
+    assert test_bullet.rect.x == 9 + 13
+    assert test_bullet.rect.y == 8
     print("=====Pass=====")
     
     print("######## bullets test complete#######\n")
 
-    pygame.quit()
 
 
     # test enemy model
@@ -41,14 +41,14 @@ def main():
     
     print("=====Standard Function Test=====")
     test_enemy.update()
-    assert True
+    assert test_enemy.rect.x == 700 - 2
+    assert test_enemy.rect.y <= 400 + 3
     print("=====Pass=====")
     
     print("######## enemy test complete#######\n")
 
     #test GameMenu model
     print("####### testing GameMenu model######")
-    pygame.init()
     test_menu = GameMenu(pygame.display.set_mode((700, 400), 0, 32),('Start', 'Quit'),{'Start': print("start")})
     
     print("=====Standard Initialization Test=====")
@@ -58,15 +58,15 @@ def main():
     
     print("=====Standard Function Test=====")
     test_menu.set_mouse_visibility()
+    assert pygame.mouse.set_visible(True)
     test_menu.set_keyboard_selection(pygame.K_UP)
-    assert True
+    assert test_menu.cur_item == 0
     print("=====Pass=====")
     
     print("######## GameMenu test complete#######\n")
 
     #test MenuItem model
     print("####### testing MenuItem model######")
-    pygame.init()
     test_menuitem = MenuItem("\u6211", None, 30, WHITE)
     
     print("=====Standard Initialization Test=====")
@@ -76,19 +76,26 @@ def main():
     print("=====Pass=====")
     
     print("=====Standard Function Test=====")
-    test_menuitem.is_mouse_selection((2,3))
+    assert test_menuitem.is_mouse_selection((2,3))
     test_menuitem.set_position(0,0)
+    assert test_menuitem.pos_x == 0
+    assert test_menuitem.pos_y == 0
     test_menuitem.set_font_color((0,0,0))
-    assert True
+    assert test_menuitem.font_color == (0,0,0)
     print("=====Pass=====")
     
     print("######## MenuItem test complete#######\n")
 
+    # test initialization of the help menu
+    print("####### testing HelpMenu model######")
+    print("=====Standard Initialization Test=====")
+    test_menu = HelpMenu()
+    print("=====Pass=====")
+
+    print("######## HelpMenu test complete#######\n")
     
     # test player model
     print("####### testing player model######")
-    pygame.display.init()
-    pygame.display.set_mode((700, 400), 0, 32)
     test_player = pl.Player()
     
     print("=====Standard Initialization Test=====")
@@ -100,7 +107,8 @@ def main():
 
     print("=====Standard Function Test=====")
     test_player.update()
-    assert True
+    assert test_player.rect.x == 0
+    assert test_player.rect.y == 200
     print("=====Pass=====")
 
     
@@ -117,10 +125,12 @@ def main():
     
     print("=====Standard Function Test=====")
     test_rock.update()
-    assert True
+    assert test_rock.rect.x == 700 - 6
     print("=====Pass=====")
 
     print("######## rocks test complete#######\n")
+
+    
 
     pygame.quit()
 
