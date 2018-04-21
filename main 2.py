@@ -183,5 +183,6 @@ def main():
         pygame.display.set_caption('Game Menu')
         gm = GameMenu(screen, funcs.keys(), funcs)
         gm.run()
+        pygame.quit()
    
 main()
