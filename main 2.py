@@ -52,7 +52,7 @@ class Controller:
         self.clock = pygame.time.Clock()
         
         done = False
-        game_over = False
+
         # main loop
         while not done:
             for event in pygame.event.get():
