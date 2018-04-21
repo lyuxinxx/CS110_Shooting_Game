@@ -3,7 +3,7 @@
     * Github URL
     * Project Demo Presentation as Google Slide URL
 Example:
-# Pygame shooter game
+# Space Shooter 2
 ## CS 110 Final Project
 ### Spring,2018
 
@@ -14,12 +14,12 @@ Example:
 https://docs.google.com/presentation/d/12Tb9pJZSVkh1yvmBxMbkxDWFgUyJRNiqf-J5I8sy3Go/edit?usp=sharing(#)
 
 ### Team:
-#### PY pandas
+### PY pandas
 
 ***
 
 ## Project Description
-The object of the project is to utilize the pygame library along with other built-in libraries to develop a 2D shooter game. In the game the user will be able to control a flying object on the window, shoot or avoid the incoming projectiles. The flying distance and the number of hit will be recorded as scores. If the flying object get hit by projectile, the game will end.
+The object of the project is to utilize the pygame library along with other built-in libraries to develop a 2D shooter game. In the game the user will be able to control a spaceship on a sci-fi themed game screen, shoot enemies or avoid the comets. The game time and the number of hits will be recorded as scores. If the spaceship get hit by an enemy or comet, the game will end. When the game ends, a game over screen will appear and inform the user with the scores, then return to the main menu.
 
 ***    
 
@@ -60,7 +60,7 @@ The object of the project is to utilize the pygame library along with other buil
 ***
 
 ## Tasks and Responsibilities
-* You must outline the team member roles and who was responsible for each class/method, both individual and collaborative.
+
 ### Software Lead - Runzhuo Chi
 
 Worked as integration specialist by helping organize the code for the main game into the proper format, which allowed all portions of the code to be run from a single file. Work very closely with the back end to develop the classes functionality, as well as establish the win- and fail-states for the main game. She also lead the implementation of the ‘sprite’ and ‘group’ classes of pygame into the back end code.
@@ -74,7 +74,7 @@ Front-end lead conducted significant research on using pygame to create visual a
 The back end specialist helped with the “Model” portion of BLOCKBUSTERS by writing the major classes that would be used in the main game, as well as implementing major pygame functionality into each of them. He also made headway in major game mechanics such as the basic paddle movement and advanced functionality such as the screen-wrap function for the paddle as it approached the ends of the screen. He collaborated with the Front End Specialist in the implementation of the classes into our Controller file, as well as develop our high-score database.
 
 ## Testing
-* TBD
+* In general, our testing strategy is very practical. First we tested the functionality of the models, made sure they can be correctly initialized and variables will be passed down to the controller. With all models checked, we run the main file to see the game's performance. 
 
 ### Menu Testing
 
