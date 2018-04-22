@@ -24,10 +24,18 @@ The object of the project is to utilize the pygame library along with other buil
 ***    
 
 ## User Interface Design
-* Our basic concept of the GUI will include the following parts:
-  * Title screen / start button
-  * game interface
-  * game over screen / scores / exit button
+1. Main Menu
+The game initiates with a welcome screen with “Space Shooter 2” and a Main Menu displayed. Three buttons, “Start”, “Help”, and “Quit”, are for game start, game instructions, and game exit, respectively. The player can move mouse or press “UP” or “DOWM” key to select. Once selected, the button will change from white to red color and become italic. Then, the player can click mouse or press “ENTER” or “SPACE” to enter. 
+
+2. Instructions Screen
+This screen tells the player how to play the game. The background of the game is introduced. Also, the animations of spaceship, missile, Outer Space Octopuses, and comet are displayed with corresponding instructions. After 15 seconds, the screen will automatically return to Main Menu screen. 
+
+3. The Game Menu
+This screen is where the actual game of “Space Shooter 2” takes place. The player can press “UP”, “DOWM”, “LEFT”, and “RIGHT” keys to move the spaceship. A press of the space bar launches a missile towards Outer Space Octopus. For each Octopus destroyed by missile, the player will get 2 points. For each second is passed, the player will get 1 point. The total score is the sum of the two. The game is over when the spaceship is hit by an Octopus or a comet.
+
+4. Game Over Menu
+This screen display “Game Over”, the highest score record, and the score the player just got. After 5 second, the screen will automatically return to Main Menu screen. 
+
 
 ***        
 
