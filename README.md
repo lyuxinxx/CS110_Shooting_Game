@@ -103,3 +103,8 @@ Then we try to reach 30 points in the game. After the player’s score reaches 3
 
 Finally, we test the Game Over functions. The game has no win state. Once the spaceship collides with a comet or an enemy, the game is over. We move the spaceship towards a comet and touches it, the Game Over screen shows up along with the player’s score and the player’s best score in this game. The Game Over screen will stay for 2 seconds. Then the program is re-initialized, the player is sent back to the menu screen. 
 
+## Acceptance Test Procedure
+***
+![image](https://github.com/binghamtonuniversity-cs110/final-project-spr18-py-pandas/raw/master/assets/Screenshots/ATP_page1.png)
+![image](https://github.com/binghamtonuniversity-cs110/final-project-spr18-py-pandas/raw/master/assets/Screenshots/ATP_page2.png)
+![image](https://github.com/binghamtonuniversity-cs110/final-project-spr18-py-pandas/raw/master/assets/Screenshots/ATP_page3.png)
