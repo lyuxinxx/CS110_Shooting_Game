@@ -28,7 +28,7 @@ You need to control your spaceship to avoid flying comets and to fire bullets to
 ### 1. Main Menu/Start Screen
 
 The game initiates with a welcome screen with “Space Shooter 2” and a Main Menu displayed. Three buttons, “Start”, “Help”, and “Quit”, are for game start, game instructions, and game exit, respectively. The player can move mouse or press “UP” or “DOWN” key to select. Once selected, the button will change from white to red color and become italic. Then, the player can click mouse or press “ENTER” or “SPACE” to enter. 
-![image](https://github.com/binghamtonuniversity-cs110/final-project-spr18-py-pandas/raw/master/assets/bgtitle.png)
+![image](https://github.com/binghamtonuniversity-cs110/final-project-spr18-py-pandas/raw/master/assets/Screenshots/menuscreen.png)
 
 ### 2. Instructions Screen
 
