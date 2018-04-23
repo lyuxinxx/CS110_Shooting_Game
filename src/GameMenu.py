@@ -1,5 +1,5 @@
 import pygame
-from src import MenuItem
+from MenuItem import *
 
 pygame.init()
 pygame.display.set_mode((700, 400), 0, 32)
@@ -21,7 +21,7 @@ class GameMenu():
         self.funcs = funcs
         self.items = []
         for index, item in enumerate(items):
-            menu_item = MenuItem.MenuItem(item, font, font_size, font_color)
+            menu_item = MenuItem(item, font, font_size, font_color)
 
             # total height of text block
             t_h = len(items) * menu_item.height
@@ -106,8 +106,6 @@ class GameMenu():
                 self.mouse_is_visible = True
                 self.cur_item = None
                 
-            #else:
-                #print("bye")
 
             self.set_mouse_visibility()
 
