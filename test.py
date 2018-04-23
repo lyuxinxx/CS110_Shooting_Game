@@ -1,13 +1,18 @@
 import pygame
 import time
-from GameMenu import *
-from HelpMenu import *
+from src import GameMenu as GM
+from src import HelpMenu as HM
+from src import MenuItem as MI
 from src import player as pl
 from src import bullets as bt
 from src import enemies as em
 from src import rocks as rk
 from src import scoreData
-from main_2 import *
+
+WHITE = (255, 255, 255)
+BLACK = (0, 0, 0)
+screen_width = 700
+screen_height = 400
 
 def main():
     #test bullets model
@@ -35,8 +40,8 @@ def main():
     test_enemy = em.Enemy()
 
     print("=====Standard Initialization Test=====")
-    assert test_enemy.rect.x == screen_width
-    assert test_enemy.rect.y < screen_height
+    assert test_enemy.rect.x == em.screen_width
+    assert test_enemy.rect.y < em.screen_height
     print("=====Pass=====")
     
     print("=====Standard Function Test=====")
@@ -49,7 +54,7 @@ def main():
 
     #test GameMenu model
     print("####### testing GameMenu model######")
-    test_menu = GameMenu(pygame.display.set_mode((700, 400), 0, 32),('Start', 'Quit'),{'Start': print("start")})
+    test_menu = GM.GameMenu(pygame.display.set_mode((700, 400), 0, 32),('Start', 'Quit'),{'Start': print("start")})
     
     print("=====Standard Initialization Test=====")
     assert test_menu.mouse_is_visible == True
@@ -67,7 +72,7 @@ def main():
 
     #test MenuItem model
     print("####### testing MenuItem model######")
-    test_menuitem = MenuItem("\u6211", None, 30, WHITE)
+    test_menuitem = MI.MenuItem("\u6211", None, 30, WHITE)
     
     print("=====Standard Initialization Test=====")
     assert test_menuitem.text == "\u6211"
@@ -89,7 +94,7 @@ def main():
     # test initialization of the help menu
     print("####### testing HelpMenu model######")
     print("=====Standard Initialization Test=====")
-    test_menu = HelpMenu()
+    test_menu = HM.HelpMenu()
     print("=====Pass=====")
 
     print("######## HelpMenu test complete#######\n")
