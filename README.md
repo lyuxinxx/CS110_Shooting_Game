@@ -11,7 +11,7 @@ Example:
 [https://github.com/binghamtonuniversity-cs110/final-project-spr18-py-pandas.git](#)
 
 ### Link to Presentation Slides:
-https://docs.google.com/presentation/d/12Tb9pJZSVkh1yvmBxMbkxDWFgUyJRNiqf-J5I8sy3Go/edit?usp=sharing(#)
+https://docs.google.com/presentation/d/1PspHvenVy_4sVxTc_uWgVJ-C84bJDG0MLpbYyIenlXc/edit#slide=id.p
 
 ### Team:
 ### PY pandas
