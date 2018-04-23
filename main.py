@@ -1,13 +1,13 @@
 import pygame
 import time
-import sys
-from GameMenu import *
+from src import GameMenu
 from src import player
 from src import bullets
 from src import enemies
 from src import rocks
 from src import scoreData
-from HelpMenu import *
+from src import HelpMenu
+import sys
 
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
@@ -85,8 +85,8 @@ class Controller:
                         
             # set the difficulty
             self.pass_time = time.time() - self.start_time
-            self.enemy_speed = self.pass_time ** 0.6 + 3
-            self.rock_speed = self.pass_time ** 0.6 + 6
+            self.enemy_speed = self.pass_time ** 0.4 + 3
+            self.rock_speed = self.pass_time ** 0.4 + 6
 
             # create rocks and enemies
             if self.pass_time < 30:
@@ -106,21 +106,20 @@ class Controller:
                     self.last_time = time.time()
 
             #--- Game Logic
-
-                
             collide_list1 = pygame.sprite.spritecollideany(self.player, self.enemy_list) 
             collide_list2 = pygame.sprite.spritecollideany(self.player, self.rock_list)
             if collide_list1 or collide_list2:
                 self.screen = pygame.display.set_mode((screen_width,screen_height))
-                self.bg_image = pygame.image.load("assets\\bg.png").convert()
                 pygame.display.set_caption("GAME OVER")
                 self.font = pygame.font.SysFont("font",30)
+
                 self.game_over = self.font.render("Game Over", True, WHITE)
                 self.your_score = self.font.render("Your Score: " + str(self.total_score), True, WHITE)
                 self.highest_score = self.font.render("Highest Score: " + str(self.score_data.best), True, WHITE)
                 self.text_rect = self.game_over.get_rect()
                 self.text_x = self.screen.get_width() / 2 - self.text_rect.width / 2
                 self.text_y = self.screen.get_height() / 2 - self.text_rect.height / 2
+
                 self.screen.blit(self.bg_image,(0,0))
                 self.screen.blit(self.game_over, [self.text_x, self.text_y-20])
                 self.screen.blit(self.your_score, [self.text_x, self.text_y+20])
@@ -167,15 +166,9 @@ class Controller:
             pygame.display.flip()
             self.clock.tick(60)
 
-        pygame.init()
-
-    
-
-
 def QuitGame():
     pygame.quit()
     sys.exit()
-
 
 
 # ---driver---
@@ -189,11 +182,11 @@ def main():
 
         menu_items = ('Start', 'Quit')
         funcs = {'Start': Controller,
-                 'Help':HelpMenu,
+                 'Help':HelpMenu.HelpMenu,
               'Quit': QuitGame}
 
         pygame.display.set_caption('Game Menu')
-        gm = GameMenu(screen, funcs.keys(), funcs)
+        gm = GameMenu.GameMenu(screen, funcs.keys(), funcs)
         gm.run()
         pygame.quit()
    
