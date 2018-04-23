@@ -19,15 +19,26 @@ https://docs.google.com/presentation/d/12Tb9pJZSVkh1yvmBxMbkxDWFgUyJRNiqf-J5I8sy
 ***
 
 ## Project Description
-The object of the project is to utilize the pygame library along with other built-in libraries to develop a 2D shooter game. In the game the user will be able to control a spaceship on a sci-fi themed game screen, shoot enemies or avoid the comets. The game time and the number of hits will be recorded as scores. If the spaceship get hit by an enemy or comet, the game will end. When the game ends, a game over screen will appear and inform the user with the scores, then return to the main menu.
+Space Shooter 2 is a horizontally oriented shoot 'em up game created through Python programming. Outer Space Octopuses are invading your planet for a rare metal darmstadtium.  You, a well-trained spaceship captain, undertake the task of destroying the intruders and defending your planet. 
+You need to manipulate your spaceship to avoid flying comets and to fire missile to attack the Octopuses. For each enemy destroyed, you will get a 2-point award. For each second passed, you will get 1 point. If the spaceship is hit by an enemy or a comet, you will get killed. Show your power and fight for your homeland!  
+
 
 ***    
 
 ## User Interface Design
 * Our basic concept of the GUI will include the following parts:
-  * Title screen / start button
-  * game interface
-  * game over screen / scores / exit button
+1. Main Menu/Start Screen
+The game initiates with a welcome screen with “Space Shooter 2” and a Main Menu displayed. Three buttons, “Start”, “Help”, and “Quit”, are for game start, game instructions, and game exit, respectively. The player can move mouse or press “UP” or “DOWN” key to select. Once selected, the button will change from white to red color and become italic. Then, the player can click mouse or press “ENTER” or “SPACE” to enter. 
+
+2. Instructions Screen
+This screen tells the player how to play the game and the background is introduced. Also, the animations of spaceship, missile, Outer Space Octopuses, and comet are displayed with corresponding instructions. After 5 seconds, the screen will automatically return to Main Menu screen. 
+
+3. The Game Screen
+This screen is where the actual game of “Space Shooter 2” takes place. The player can press “UP”, “DOWN”, “LEFT”, and “RIGHT” keys to move the spaceship. A press of “SPACE” bar launches a missile towards Outer Space Octopus. For each Octopus destroyed by missile, the player will get 2 points. For each second passed, the player will get 1 point. The total score is the sum of the two. The game is over when the spaceship is hit by an Octopus or a comet.
+
+4. Game Over Screen
+This screen displays “Game Over”, the highest score record, and the score the player just got. After 5 second, the screen will automatically return to Main Menu screen. 
+
 
 ***        
 
