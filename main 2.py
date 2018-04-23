@@ -110,13 +110,26 @@ class Controller:
             collide_list2 = pygame.sprite.spritecollideany(self.player, self.rock_list)
             if collide_list1 or collide_list2:
                 self.screen = pygame.display.set_mode((screen_width,screen_height))
-                self.bg_image = pygame.image.load("assets\\gameover.png").convert()
                 pygame.display.set_caption("GAME OVER")
                 self.font = pygame.font.SysFont("font",30)
+
+                self.game_over = self.font.render("Game Over", True, WHITE)
+                self.your_score = self.font.render("Your Score: " + str(self.total_score), True, WHITE)
+                self.highest_score = self.font.render("Highest Score: " + str(self.score_data.best), True, WHITE)
+                self.text_rect = self.game_over.get_rect()
+                self.text_x = self.screen.get_width() / 2 - self.text_rect.width / 2
+                self.text_y = self.screen.get_height() / 2 - self.text_rect.height / 2
+
                 self.screen.blit(self.bg_image,(0,0))
+                self.screen.blit(self.game_over, [self.text_x, self.text_y-20])
+                self.screen.blit(self.your_score, [self.text_x, self.text_y+20])
+                self.screen.blit(self.highest_score, [self.text_x, self.text_y+50])
+
+                
                 pygame.display.flip()
-                time.sleep(2)
+                time.sleep(3)
                 done = True
+                
     
             # update classes
             self.all_sprites_list= pygame.sprite.Group((self.player,)+tuple(self.enemy_list)+tuple(self.rock_list)+tuple(self.bullet_list))
@@ -175,5 +188,6 @@ def main():
         pygame.display.set_caption('Game Menu')
         gm = GameMenu.GameMenu(screen, funcs.keys(), funcs)
         gm.run()
+        pygame.quit()
    
 main()
