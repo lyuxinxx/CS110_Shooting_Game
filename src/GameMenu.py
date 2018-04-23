@@ -1,5 +1,5 @@
 import pygame
-from MenuItem import *
+from src import MenuItem as mitem
 
 pygame.init()
 pygame.display.set_mode((700, 400), 0, 32)
@@ -21,7 +21,7 @@ class GameMenu():
         self.funcs = funcs
         self.items = []
         for index, item in enumerate(items):
-            menu_item = MenuItem(item, font, font_size, font_color)
+            menu_item = mitem.MenuItem(item, font, font_size, font_color)
 
             # total height of text block
             t_h = len(items) * menu_item.height
