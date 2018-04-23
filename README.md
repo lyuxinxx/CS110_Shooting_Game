@@ -27,16 +27,20 @@ You need to manipulate your spaceship to avoid flying comets and to fire missile
 
 ## User Interface Design
 * Our basic concept of the GUI will include the following parts:
-1. Main Menu/Start Screen
+### 1. Main Menu/Start Screen
+
 The game initiates with a welcome screen with “Space Shooter 2” and a Main Menu displayed. Three buttons, “Start”, “Help”, and “Quit”, are for game start, game instructions, and game exit, respectively. The player can move mouse or press “UP” or “DOWN” key to select. Once selected, the button will change from white to red color and become italic. Then, the player can click mouse or press “ENTER” or “SPACE” to enter. 
 
-2. Instructions Screen
+### 2. Instructions Screen
+
 This screen tells the player how to play the game and the background is introduced. Also, the animations of spaceship, missile, Outer Space Octopuses, and comet are displayed with corresponding instructions. After 5 seconds, the screen will automatically return to Main Menu screen. 
 
-3. The Game Screen
+### 3. The Game Screen
+
 This screen is where the actual game of “Space Shooter 2” takes place. The player can press “UP”, “DOWN”, “LEFT”, and “RIGHT” keys to move the spaceship. A press of “SPACE” bar launches a missile towards Outer Space Octopus. For each Octopus destroyed by missile, the player will get 2 points. For each second passed, the player will get 1 point. The total score is the sum of the two. The game is over when the spaceship is hit by an Octopus or a comet.
 
-4. Game Over Screen
+### 4. Game Over Screen
+
 This screen displays “Game Over”, the highest score record, and the score the player just got. After 5 second, the screen will automatically return to Main Menu screen. 
 
 
