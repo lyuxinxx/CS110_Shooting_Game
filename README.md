@@ -91,7 +91,7 @@ Front-end lead conducted significant research on using pygame to create visual a
 The back end specialist was in charge of developing the “Model” portion of the game. He wrote the major classes that would be used in the main game, as well as implementing major pygame functionality into each of them. He also developed the major game mechanics such as the spaceship movements and advanced features including shooting, enemy generating and score recording. He also developed our high-score database.
 
 ## Testing
-* In general, our testing strategy is very practical. First we tested the functionality of the models, made sure they can be correctly initialized and variables will be passed down to the controller. With all models checked, we run the main.py file to see the game's performance. 
+* In general, our testing strategy is very practical. First we tested the functionality of the models using a test.py file, made sure they can be correctly initialized and variables will be passed down to the controller. With all models checked, we run the main.py file to see the game's performance. 
 
 ### Menu Testing
 
