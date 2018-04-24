@@ -74,6 +74,10 @@ This screen displays “Game Over”, the highest score record, and the score th
 
 * **MenuItems [Jinhua, Runzhuo]** - A class that defines the items appear in th etitle screen. It cantains background color, font and color of the buttons.
 
+### Non-Standard Libraries and Modules Used
+
+* **Pygame (https://www.pygame.org/) - A module set incorporating many common game development functions into python, developed by Pete Shinners and Pygame Community. Includes crucial graphical elements as well as a musical playback functionality.
+
 ***
 
 ## Tasks and Responsibilities
