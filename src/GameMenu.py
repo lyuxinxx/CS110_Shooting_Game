@@ -9,8 +9,14 @@ BLACK = (0, 0, 0)
 img = pygame.image.load("assets\\bgtitle.png").convert()
 
 class GameMenu():
+    """
+        This class represents the game menu.
+    """
     def __init__(self, screen, items, funcs, bg_image = img, font = None, font_size = 30,
                  font_color = WHITE):
+        """
+            Initiate the game menu.
+        """
         self.screen = screen
         self.scr_width = self.screen.get_rect().width
         self.scr_height = self.screen.get_rect().height
@@ -35,14 +41,18 @@ class GameMenu():
         self.cur_item = None
 
     def set_mouse_visibility(self):
-      
+        '''
+           Set up mouse visibility.
+        '''
         if self.mouse_is_visible:
             pygame.mouse.set_visible(True)
         else:
             pygame.mouse.set_visible(False)
 
     def set_keyboard_selection(self, key):
-
+        '''
+           Set up keyboard selection.
+        '''
         for item in self.items:
             
             item.set_italic(False)
@@ -73,7 +83,9 @@ class GameMenu():
             self.funcs[text]()
 
     def set_mouse_selection(self, item, mpos):
-        
+        '''
+            Set up mouse selection and change color and style when item is selected.
+        '''
         if item.is_mouse_selection(mpos):
             item.set_font_color(RED)
             item.set_italic(True)
@@ -82,6 +94,9 @@ class GameMenu():
             item.set_italic(False)
 
     def run(self):
+        '''
+            Execute the game menu.
+        '''
         mainloop = True
         
         while mainloop:

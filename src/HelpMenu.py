@@ -7,7 +7,13 @@ screen_width = 700
 screen_height = 400
 
 class HelpMenu:
+    """
+        This class represents the Help Menu.
+    """
     def __init__(self):
+        """
+            Initiate the Help Menu.
+        """
         pygame.init()
 
         # Create the window
