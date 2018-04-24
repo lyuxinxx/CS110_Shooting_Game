@@ -16,36 +16,42 @@ screen_height = 400
 
 
 class Controller:
+    """
+        This class represents Controller.
+    """
     def __init__(self):
+        """
+            Initiate the Controller.
+        """
         pygame.init()
 
-        # Create the window
+        ''' Create the window '''
         self.screen = pygame.display.set_mode((screen_width,screen_height))
         self.bg_image = pygame.image.load("assets\\bg.png").convert()
         pygame.display.set_caption("Space Shooter 2")
 
-        # Font
+        ''' Font '''
         self.font = pygame.font.SysFont("font",20)
 
-        # Music
+        ''' Music '''
         self.bgm = pygame.mixer.music.load("assets\monkeys.wav")
         pygame.mixer.music.play(1)
         self.bullet_sound = pygame.mixer.Sound("assets\laser5.ogg")
         
-        # Sprite lists
+        ''' Sprite lists '''
         self.enemy_list = pygame.sprite.Group()
         self.bullet_list = pygame.sprite.Group()
         self.rock_list = pygame.sprite.Group()
         
-        # Create the player
+        ''' Create the player '''
         self.player = player.Player()
 
-        # initiate the time
+        ''' initiate the time '''
         self.start_time = time.time()
         self.pass_time = 0
         self.last_time = 0
         
-        #initiate the score:
+        ''' initiate the score '''
         self.hit_score = 0
         self.total_score = 0
         self.score_data = scoreData.ScoreData()
@@ -54,7 +60,7 @@ class Controller:
         
         done = False
 
-        # main loop
+        ''' main loop '''
         while not done:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -62,13 +68,13 @@ class Controller:
                     
                 elif event.type == pygame.KEYDOWN:
                     
-                    # shoot
+                    ''' shoot '''
                     if event.key == pygame.K_SPACE:
                         bullet_x = self.player.rect.x + self.player.image.get_width()
                         bullet_y = self.player.rect.y + 8
                         self.bullet_list.add(bullets.Bullet(bullet_x, bullet_y))
                         self.bullet_sound.play()
-                    # move the plane
+                    ''' move the plane '''
                     if event.key == pygame.K_LEFT:
                         self.player.x_speed = -5
                     if event.key == pygame.K_RIGHT:
@@ -83,12 +89,12 @@ class Controller:
                     if event.key == pygame.K_UP or event.key == pygame.K_DOWN:
                         self.player.y_speed = 0
                         
-            # set the difficulty
+            ''' set the difficulty '''
             self.pass_time = time.time() - self.start_time
             self.enemy_speed = self.pass_time ** 0.4 + 3
             self.rock_speed = self.pass_time ** 0.4 + 6
 
-            # create rocks and enemies
+            ''' create rocks and enemies '''
             if self.pass_time < 30:
                 if time.time() - self.last_time > 0.75:
                     self.enemy_list.add(enemies.Enemy(self.enemy_speed)) 
@@ -105,10 +111,11 @@ class Controller:
                     self.rock_list.add(rocks.Rock(self.rock_speed))
                     self.last_time = time.time()
 
-            #--- Game Logic
+            ''' Game Logic '''
             collide_list1 = pygame.sprite.spritecollideany(self.player, self.enemy_list) 
             collide_list2 = pygame.sprite.spritecollideany(self.player, self.rock_list)
             if collide_list1 or collide_list2:
+                self.screen = pygame.display.set_mode((screen_width,screen_height))
                 pygame.display.set_caption("GAME OVER")
                 self.font = pygame.font.SysFont("font",30)
 
@@ -124,12 +131,13 @@ class Controller:
                 self.screen.blit(self.your_score, [self.text_x, self.text_y+20])
                 self.screen.blit(self.highest_score, [self.text_x, self.text_y+50])
 
+                
                 pygame.display.flip()
                 time.sleep(3)
                 done = True
                 
     
-            # update classes
+            ''' update classes '''
             self.all_sprites_list= pygame.sprite.Group((self.player,)+tuple(self.enemy_list)+tuple(self.rock_list)+tuple(self.bullet_list))
             self.all_sprites_list.update()
             
@@ -147,7 +155,7 @@ class Controller:
                     self.bullet_list.remove(bullet)
                     self.all_sprites_list.remove(bullet)
                 
-            # score
+            ''' score '''
             self.total_score = int(self.hit_score + self.pass_time)
             if self.total_score > self.score_data.best:
                 self.score_data.best = self.total_score
@@ -156,7 +164,7 @@ class Controller:
             self.best_score = self.font.render("Best: "+ str(self.score_data.best), True, WHITE)
 
             
-            # redraw the screen
+            ''' redraw the screen '''
             self.screen.blit(self.bg_image,(0,0))
             self.screen.blit(self.score, (screen_width - 100, 5))
             self.screen.blit(self.best_score, (screen_width - 100, 20))
@@ -169,9 +177,8 @@ def QuitGame():
     sys.exit()
 
 
-# ---driver---
+''' ---driver--- '''
 def main():
-
     if __name__ == "__main__":
 
         pygame.init()
