@@ -109,7 +109,6 @@ class Controller:
             collide_list1 = pygame.sprite.spritecollideany(self.player, self.enemy_list) 
             collide_list2 = pygame.sprite.spritecollideany(self.player, self.rock_list)
             if collide_list1 or collide_list2:
-                self.screen = pygame.display.set_mode((screen_width,screen_height))
                 pygame.display.set_caption("GAME OVER")
                 self.font = pygame.font.SysFont("font",30)
 
@@ -125,7 +124,6 @@ class Controller:
                 self.screen.blit(self.your_score, [self.text_x, self.text_y+20])
                 self.screen.blit(self.highest_score, [self.text_x, self.text_y+50])
 
-                
                 pygame.display.flip()
                 time.sleep(3)
                 done = True
