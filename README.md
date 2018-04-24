@@ -10,26 +10,28 @@
 https://docs.google.com/presentation/d/1PspHvenVy_4sVxTc_uWgVJ-C84bJDG0MLpbYyIenlXc/edit#slide=id.p
 
 ### Team:
-### PY pandas
+
+PY pandas
 
 ### Team Members:
-### Runzhuo Chi, Jinhua Xie, Yuxin Lin
+
+Runzhuo Chi, Jinhua Xie, Yuxin Lin
 
 ***
 
 ## Project Description
 The object of the project is to utilize the pygame library along with other built-in libraries to develop a 2D shooter game. In the game the user will be able to control a spaceship on a sci-fi themed game screen, shoot enemies or avoid the comets. The game time and the number of hits will be recorded as scores. If the spaceship get hit by an enemy or comet, the game will end. When the game ends, a game over screen will appear and inform the user with the scores, then return to the main menu.
 
-Space Shooter 2 is a horizontally oriented shooting game created with Python. Outer Space Octopuses are invading your planet for a rare metal darmstadtium.  You, a well-trained spaceship captain, undertake the task of destroying the intruders and defending your planet. 
-You need to control your spaceship to avoid flying comets and to fire bullets to attack the Octopuses. For each enemy destroyed, you will get a 2-point award. For each second passed, you will get 1 point. If the spaceship is hit by an enemy or a comet, you will get killed. Show your power and fight for your homeland!  
+### Game Background
 
+Outer Space Octopuses are invading your planet for a rare metal darmstadtium. You, a well-trained spaceship captain, undertake the task of destroying the intruders and defending your planet. Now, it is time for you to show your power and fight for your homeland!
 
 ***    
 
 ## User Interface Design
 * Our basic concept of the GUI will include the following parts:
 
-### GUI WireFrame
+### GUI Wireframe
 
 ![image](https://github.com/binghamtonuniversity-cs110/final-project-spr18-py-pandas/raw/master/assets/Screenshots/wireframe.PNG)
 
@@ -92,15 +94,15 @@ This screen displays “Game Over”, the highest score record, and the score th
 
 ### Software Lead - Runzhuo Chi
 
-Worked as an integration specialist by helping organize the code for the main game into the proper format, which allowed all portions of the code to be run from a single file. Work very closely with the back end to develop and test the classes functionality, as well as establish the different states for the main game. She also worked with the front-end specialist to implement the menu classes for the user interface.
+Worked as an integration specialist by helping organize the code for the main game into the proper format, which allowed all portions of the code to be run from a single file. Worked very closely with the back-end to develop and test the classes functionality, as well as establish the different states for the main game. She also worked with the front-end specialist to implement the menu classes for the user interface.
 
 ### Front End Specialist - Jinhua Xie
 
-Front-end lead conducted significant research on using pygame to create visual aspects such as buttons, on-screen texts, game backgrounds and game over screen. She used various resources to design and program a consistent graphical UI to help the player navigate the game menu screen, the instructions screen, and the “GAME OVER” screen.
+The front-end specialist conducted significant research on using pygame to create visual aspects such as buttons, on-screen texts, game backgrounds and “GAME OVER” screen. She used various resources to design and program a consistent graphical UI to help the player navigate the game menu screen, the instructions screen, and the “GAME OVER” screen.
 
 ### Back End Specialist - Yuxin Lin
 
-The back end specialist was in charge of developing the “Model” portion of the game. He wrote the major classes that would be used in the main game, as well as implementing major pygame functionality into each of them. He also developed the major game mechanics such as the spaceship movements and advanced features including shooting, enemy generating and score recording. He also developed our high-score database.
+The back-end specialist was in charge of developing the “Model” portion of the game. He wrote the major classes that would be used in the main game, as well as implemented major pygame functionality into each of them. He also developed the major game mechanics such as the spaceship movements and advanced features including shooting, enemy generating and score recording. He also developed our highest-score database.
 
 ## Testing
 * In general, our testing strategy is very practical. First we tested the functionality of the models using a test.py file, made sure they can be correctly initialized and variables will be passed down to the controller. With all models checked, we run the main.py file to see the game's performance. 
@@ -115,7 +117,7 @@ We then click on the Start button on the menu. The game starts normally, and the
 
 ![image](https://github.com/binghamtonuniversity-cs110/final-project-spr18-py-pandas/raw/master/assets/Screenshots/gamescreen.png)
 
-When the game is in progress, by clicking on the X on the upper right corner of the window, we can return to the menu. Next, we click on the Help button, the help page showed up as expected, it stays visible for 2 seconds for the player to read the instructions. Then the window automatically switches back to the menu screen.
+When the game is in progress, by clicking on the X on the upper right corner of the window, we can return to the menu. Next, we click on the Help button, the help page showed up as expected, it stays visible for 5 seconds for the player to read the instructions. Then the window automatically switches back to the menu screen.
 
 ![image](https://github.com/binghamtonuniversity-cs110/final-project-spr18-py-pandas/raw/master/assets/HelpMenu.png)
 
