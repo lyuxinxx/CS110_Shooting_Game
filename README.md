@@ -1,8 +1,4 @@
-﻿* Cover Page
-    * A cover page containing your group member names, project title, course number, and semester
-    * Github URL
-    * Project Demo Presentation as Google Slide URL
-Example:
+﻿
 # Space Shooter 2
 ## CS 110 Final Project
 ### Spring,2018
@@ -19,25 +15,35 @@ https://docs.google.com/presentation/d/1PspHvenVy_4sVxTc_uWgVJ-C84bJDG0MLpbYyIen
 ***
 
 ## Project Description
-Space Shooter 2 is a horizontally oriented shoot 'em up game created through Python programming. Outer Space Octopuses are invading your planet for a rare metal darmstadtium.  You, a well-trained spaceship captain, undertake the task of destroying the intruders and defending your planet. 
-You need to manipulate your spaceship to avoid flying comets and to fire missile to attack the Octopuses. For each enemy destroyed, you will get a 2-point award. For each second passed, you will get 1 point. If the spaceship is hit by an enemy or a comet, you will get killed. Show your power and fight for your homeland!  
+The object of the project is to utilize the pygame library along with other built-in libraries to develop a 2D shooter game. In the game the user will be able to control a spaceship on a sci-fi themed game screen, shoot enemies or avoid the comets. The game time and the number of hits will be recorded as scores. If the spaceship get hit by an enemy or comet, the game will end. When the game ends, a game over screen will appear and inform the user with the scores, then return to the main menu.
+
+Space Shooter 2 is a horizontally oriented shooting game created with Python. Outer Space Octopuses are invading your planet for a rare metal darmstadtium.  You, a well-trained spaceship captain, undertake the task of destroying the intruders and defending your planet. 
+You need to control your spaceship to avoid flying comets and to fire bullets to attack the Octopuses. For each enemy destroyed, you will get a 2-point award. For each second passed, you will get 1 point. If the spaceship is hit by an enemy or a comet, you will get killed. Show your power and fight for your homeland!  
 
 
 ***    
 
 ## User Interface Design
 * Our basic concept of the GUI will include the following parts:
-1. Main Menu/Start Screen
+### 1. Main Menu/Start Screen
+
 The game initiates with a welcome screen with “Space Shooter 2” and a Main Menu displayed. Three buttons, “Start”, “Help”, and “Quit”, are for game start, game instructions, and game exit, respectively. The player can move mouse or press “UP” or “DOWN” key to select. Once selected, the button will change from white to red color and become italic. Then, the player can click mouse or press “ENTER” or “SPACE” to enter. 
+![image](https://github.com/binghamtonuniversity-cs110/final-project-spr18-py-pandas/raw/master/assets/Screenshots/menuscreen.png)
 
-2. Instructions Screen
+### 2. Instructions Screen
+
 This screen tells the player how to play the game and the background is introduced. Also, the animations of spaceship, missile, Outer Space Octopuses, and comet are displayed with corresponding instructions. After 5 seconds, the screen will automatically return to Main Menu screen. 
+![image](https://github.com/binghamtonuniversity-cs110/final-project-spr18-py-pandas/raw/master/assets/HelpMenu.png)
 
-3. The Game Screen
+### 3. The Game Screen
+
 This screen is where the actual game of “Space Shooter 2” takes place. The player can press “UP”, “DOWN”, “LEFT”, and “RIGHT” keys to move the spaceship. A press of “SPACE” bar launches a missile towards Outer Space Octopus. For each Octopus destroyed by missile, the player will get 2 points. For each second passed, the player will get 1 point. The total score is the sum of the two. The game is over when the spaceship is hit by an Octopus or a comet.
+![image](https://github.com/binghamtonuniversity-cs110/final-project-spr18-py-pandas/raw/master/assets/Screenshots/gamescreen.png)
 
-4. Game Over Screen
-This screen displays “Game Over”, the highest score record, and the score the player just got. After 5 second, the screen will automatically return to Main Menu screen. 
+### 4. Game Over Screen
+
+This screen displays “Game Over”, the highest score record, and the score the player just got. After 3 second, the screen will automatically return to Main Menu screen. 
+![image](https://github.com/binghamtonuniversity-cs110/final-project-spr18-py-pandas/raw/master/assets/Screenshots/GameOver.png)
 
 
 ***        
@@ -48,25 +54,25 @@ This screen displays “Game Over”, the highest score record, and the score th
 
 ### List of classes
 
-* **Player** - A class that defines the player - it is the active object the user can control to move in four directions to aviod obstacles and shoot enermies. It contains the image, the location of the plane and its speed, along with methods including update() to move the plane in the screen. The game is over when the plane collides with obstacles.
+* **Player [Yuxin]** - A class that defines the player - it is the active object the user can control to move in four directions to aviod obstacles and shoot enermies. It contains the image, the location of the plane and its speed, along with methods including update() to move the plane in the screen. The game is over when the plane collides with obstacles.
 
 
-* **Enemies** - A class that defines the enermies that emerge on the other side of the screen and can be shoot by the plane. It contains the image and its location and speed, along with methods including update() to move forward. 
+* **Enemies [Yuxin]** - A class that defines the enermies that emerge on the other side of the screen and can be shoot by the plane. It contains the image and its location and speed, along with methods including update() to move forward. 
 
 
-* **Bullets** - A class that defines the bullets shoot by the plane. It contains the image, its location and speed, along with the method update() to move forward. 
+* **Bullets [Yuxin]** - A class that defines the bullets shoot by the plane. It contains the image, its location and speed, along with the method update() to move forward. 
 
 
-* **Rocks** - A class that defines the rocks coming from the other side of the screen. Rocks can not be shoot and the player has to avoid running into them. It consists of the image, the location, speed and update() method.
+* **Rocks [Yuxin]** - A class that defines the rocks coming from the other side of the screen. Rocks can not be shoot and the player has to avoid running into them. It consists of the image, the location, speed and update() method.
 
-* **ScoreData** - A class that defines the best score record. It contains the file used to store score data, the best score read from the file and update() method to update the best record in the file .
+* **ScoreData [Yuxin]** - A class that defines the best score record. It contains the file used to store score data, the best score read from the file and update() method to update the best record in the file .
 
-* **GameMenu** - A class that defines the title screen, where users can interact with start button, help button and quit button. It is able to track the mouse and keyboard movement and inputs. Start button initializes the game and quit button will terminate the game process.
+* **GameMenu [Jinhua, Runzhuo]** - A class that defines the title screen, where users can interact with start button, help button and quit button. It is able to track the mouse and keyboard movement and inputs. Start button initializes the game and quit button will terminate the game process.
 
-* **HelpMenu** - A class that defines the help menu, by clicking on the help button, a page introducing the game and controls will show up for the user's reference.
+* **HelpMenu [Jinhua, Runzhuo]** - A class that defines the help menu, by clicking on the help button, a page introducing the game and controls will show up for the user's reference.
 
 
-* **MenuItems** - A class that defines the items appear in th etitle screen. It cantains background color, font and color of the buttons.
+* **MenuItems [Jinhua, Runzhuo]** - A class that defines the items appear in th etitle screen. It cantains background color, font and color of the buttons.
 
 ***
 
@@ -74,18 +80,18 @@ This screen displays “Game Over”, the highest score record, and the score th
 
 ### Software Lead - Runzhuo Chi
 
-Worked as integration specialist by helping organize the code for the main game into the proper format, which allowed all portions of the code to be run from a single file. Work very closely with the back end to develop the classes functionality, as well as establish the win- and fail-states for the main game. She also lead the implementation of the ‘sprite’ and ‘group’ classes of pygame into the back end code.
+Worked as an integration specialist by helping organize the code for the main game into the proper format, which allowed all portions of the code to be run from a single file. Work very closely with the back end to develop and test the classes functionality, as well as establish the different states for the main game. She also worked with the front-end specialist to implement the menu classes for the user interface.
 
 ### Front End Specialist - Jinhua Xie
 
-Front-end lead conducted significant research on using pygame to create visual aspects such as buttons and on-screen text. She used this information to design and program a consistent UI to help the player navigate the title screen, the instructions page, and the “GAME OVER” screen. In addition to implementing the wide majority of the visual element for the UI, she also collaborated with the Software Lead to create a jukebox function that played music and to add sound effects to the menu navigation buttons.
+Front-end lead conducted significant research on using pygame to create visual aspects such as buttons, on-screen texts, game backgrounds and game over screen. She used various resources to design and program a consistent graphical UI to help the player navigate the game menu screen, the instructions screen, and the “GAME OVER” screen.
 
 ### Back End Specialist - Yuxin Lin
 
-The back end specialist helped with the “Model” portion of BLOCKBUSTERS by writing the major classes that would be used in the main game, as well as implementing major pygame functionality into each of them. He also made headway in major game mechanics such as the basic paddle movement and advanced functionality such as the screen-wrap function for the paddle as it approached the ends of the screen. He collaborated with the Front End Specialist in the implementation of the classes into our Controller file, as well as develop our high-score database.
+The back end specialist was in charge of developing the “Model” portion of the game. He wrote the major classes that would be used in the main game, as well as implementing major pygame functionality into each of them. He also developed the major game mechanics such as the spaceship movements and advanced features including shooting, enemy generating and score recording. He also developed our high-score database.
 
 ## Testing
-* In general, our testing strategy is very practical. First we tested the functionality of the models, made sure they can be correctly initialized and variables will be passed down to the controller. With all models checked, we run the main file to see the game's performance. 
+* In general, our testing strategy is very practical. First we tested the functionality of the models using a test.py file, made sure they can be correctly initialized and variables will be passed down to the controller. With all models checked, we run the main.py file to see the game's performance. 
 
 ### Menu Testing
 
@@ -99,7 +105,7 @@ We then click on the Start button on the menu. The game starts normally, and the
 
 When the game is in progress, by clicking on the X on the upper right corner of the window, we can return to the menu. Next, we click on the Help button, the help page showed up as expected, it stays visible for 2 seconds for the player to read the instructions. Then the window automatically switches back to the menu screen.
 
-![image](https://github.com/binghamtonuniversity-cs110/final-project-spr18-py-pandas/raw/master/assets/Screenshots/helpscreen.png)
+![image](https://github.com/binghamtonuniversity-cs110/final-project-spr18-py-pandas/raw/master/assets/HelpMenu.png)
 
 
 ### Game Testing

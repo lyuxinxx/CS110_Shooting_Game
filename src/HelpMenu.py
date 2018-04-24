@@ -18,4 +18,4 @@ class HelpMenu:
 
         self.screen.blit(self.bg_image,(0,0))
         pygame.display.flip()
-        time.sleep(2)
+        time.sleep(5)
