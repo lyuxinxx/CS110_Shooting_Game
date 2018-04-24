@@ -12,6 +12,9 @@ https://docs.google.com/presentation/d/1PspHvenVy_4sVxTc_uWgVJ-C84bJDG0MLpbYyIen
 ### Team:
 ### PY pandas
 
+### Team Members:
+### Runzhuo Chi, Jinhua Xie, Yuxin Lin
+
 ***
 
 ## Project Description
@@ -25,6 +28,11 @@ You need to control your spaceship to avoid flying comets and to fire bullets to
 
 ## User Interface Design
 * Our basic concept of the GUI will include the following parts:
+
+### GUI WireFrame
+
+![image](https://github.com/binghamtonuniversity-cs110/final-project-spr18-py-pandas/raw/master/assets/Screenshots/wireframe.PNG)
+
 ### 1. Main Menu/Start Screen
 
 The game initiates with a welcome screen with “Space Shooter 2” and a Main Menu displayed. Three buttons, “Start”, “Help”, and “Quit”, are for game start, game instructions, and game exit, respectively. The player can move mouse or press “UP” or “DOWN” key to select. Once selected, the button will change from white to red color and become italic. Then, the player can click mouse or press “ENTER” or “SPACE” to enter. 
@@ -76,7 +84,7 @@ This screen displays “Game Over”, the highest score record, and the score th
 
 ### Non-Standard Libraries and Modules Used
 
-* **Pygame (https://www.pygame.org/) - A module set incorporating many common game development functions into python, developed by Pete Shinners and Pygame Community. Includes crucial graphical elements as well as a musical playback functionality.
+* Pygame (https://www.pygame.org/) - A module set incorporating many common game development functions into python, developed by Pete Shinners and Pygame Community. Includes crucial graphical elements as well as a musical playback functionality.
 
 ***
 
