@@ -129,7 +129,7 @@ First, we press each of the four direction keys once, the spaceship moves and st
 
 As the movement of the spaceship is tested, we continue the game and test the shooting function. When blank space key is pressed, one bullet shows up and moves forward along the x-axis from the spaceship. We then press the blank space key multiple times, every time it is pressed, one bullet is launched. After that, we tested the bullet’s functions. We shoot bullets towards enemies. When a bullet hits an enemy, the enemy and the bullet will both disappear. The bullet that does not hit the enemy keeps moving until it hit the right edge of the screen and disappear. The score indicator increases by 2 every time an enemy is destroyed. Then we shoot bullets towards comets, comets will not be destroyed upon the collision with a bullet. 
 
-Then we try to reach 30 seconds in the game. After the player’s game time reaches 30 seconds, the speed of enemies and comets will increase. The speed of enemies and comet will increase further when the player’s score reaches 50 and 75 seconds.
+Then we try to reach 30 seconds in the game. After the player’s game time reaches 30 seconds, the speed of enemies and comets will increase. The speed of enemies and comet will increase further when the player’s time reaches 50 and 75 seconds.
 
 Finally, we test the Game Over functions. The game has no win state. Once the spaceship collides with a comet or an enemy, the game is over. We move the spaceship towards a comet and touches it, the Game Over screen shows up along with the player’s score and the player’s best score in this game. The Game Over screen will stay for 3 seconds. Then the program is re-initialized, the player is sent back to the menu screen. 
 
