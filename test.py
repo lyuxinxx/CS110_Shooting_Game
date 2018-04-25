@@ -15,7 +15,7 @@ screen_width = 700
 screen_height = 400
 
 def main():
-    #test bullets model
+    """test bullets model"""
     print("####### testing bullets model######")
     test_bullet = bt.Bullet(9,8)
     
@@ -34,7 +34,7 @@ def main():
 
 
 
-    # test enemy model
+    """ test enemy model"""
     print("####### testing enemy model######")
 
     test_enemy = em.Enemy()
@@ -52,7 +52,7 @@ def main():
     
     print("######## enemy test complete#######\n")
 
-    #test GameMenu model
+    """test GameMenu model"""
     print("####### testing GameMenu model######")
     test_menu = GM.GameMenu(pygame.display.set_mode((700, 400), 0, 32),('Start', 'Quit'),{'Start': print("start")})
     
@@ -70,7 +70,7 @@ def main():
     
     print("######## GameMenu test complete#######\n")
 
-    #test MenuItem model
+    """test MenuItem model"""
     print("####### testing MenuItem model######")
     test_menuitem = MI.MenuItem("\u6211", None, 30, WHITE)
     
@@ -91,7 +91,7 @@ def main():
     
     print("######## MenuItem test complete#######\n")
 
-    # test initialization of the help menu
+    """ test initialization of the help menu"""
     print("####### testing HelpMenu model######")
     print("=====Standard Initialization Test=====")
     test_menu = HM.HelpMenu()
@@ -99,7 +99,7 @@ def main():
 
     print("######## HelpMenu test complete#######\n")
     
-    # test player model
+    """test player model"""
     print("####### testing player model######")
     test_player = pl.Player()
     
@@ -119,7 +119,7 @@ def main():
     
     print("######## player test complete#######\n")
 
-    #test rocks model
+    """test rocks model"""
     print("####### testing player model######")
     test_rock = rk.Rock()
     
