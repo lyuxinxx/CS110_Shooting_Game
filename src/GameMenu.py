@@ -29,7 +29,7 @@ class GameMenu():
         for index, item in enumerate(items):
             menu_item = mitem.MenuItem(item, font, font_size, font_color)
 
-            ''' total height of text block '''
+            # total height of text block 
             t_h = len(items) * menu_item.height
             pos_x = (self.scr_width / 2) - (menu_item.width / 2)
             pos_y = (self.scr_height / 2) - (t_h / 2) + ((index*2) + index * menu_item.height)
