@@ -115,7 +115,6 @@ class Controller:
             collide_list1 = pygame.sprite.spritecollideany(self.player, self.enemy_list) 
             collide_list2 = pygame.sprite.spritecollideany(self.player, self.rock_list)
             if collide_list1 or collide_list2:
-                self.screen = pygame.display.set_mode((screen_width,screen_height))
                 pygame.display.set_caption("GAME OVER")
                 self.font = pygame.font.SysFont("font",30)
 
