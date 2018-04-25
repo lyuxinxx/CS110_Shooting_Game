@@ -42,12 +42,12 @@ The game initiates with a welcome screen with “Space Shooter 2” and a Main M
 
 ### 2. Instructions Screen
 
-This screen tells the player how to play the game and the background is introduced. Also, the animations of spaceship, missile, Outer Space Octopuses, and comet are displayed with corresponding instructions. After 5 seconds, the screen will automatically return to Main Menu screen. 
+This screen tells the player how to play the game and the background is introduced. Also, the animations of spaceship, bullet, Outer Space Octopuses, and comet are displayed with corresponding instructions. After 5 seconds, the screen will automatically return to Main Menu screen. 
 ![image](https://github.com/binghamtonuniversity-cs110/final-project-spr18-py-pandas/raw/master/assets/HelpMenu.png)
 
 ### 3. The Game Screen
 
-This screen is where the actual game of “Space Shooter 2” takes place. The player can press “UP”, “DOWN”, “LEFT”, and “RIGHT” keys to move the spaceship. A press of “SPACE” bar launches a missile towards Outer Space Octopus. For each Octopus destroyed by missile, the player will get 2 points. For each second passed, the player will get 1 point. The total score is the sum of the two. The game is over when the spaceship is hit by an Octopus or a comet.
+This screen is where the actual game of “Space Shooter 2” takes place. The player can press “UP”, “DOWN”, “LEFT”, and “RIGHT” keys to move the spaceship. A press of “SPACE” bar launches a bullet towards Outer Space Octopus. For each Octopus destroyed by bullet, the player will get 2 points. For each second passed, the player will get 1 point. The total score is the sum of the two. The game is over when the spaceship is hit by an Octopus or a comet.
 ![image](https://github.com/binghamtonuniversity-cs110/final-project-spr18-py-pandas/raw/master/assets/Screenshots/gamescreen.png)
 
 ### 4. Game Over Screen
@@ -64,25 +64,24 @@ This screen displays “Game Over”, the highest score record, and the score th
 
 ### List of classes
 
-* **Player [Yuxin]** - A class that defines the player - it is the active object the user can control to move in four directions to aviod obstacles and shoot enermies. It contains the image, the location of the plane and its speed, along with methods including update() to move the plane in the screen. The game is over when the plane collides with obstacles.
+* **Player [Yuxin]** - A class that defines the player - it is an active object the user can control to move in four directions to aviod obstacles and shoot enermies. It contains the image, the location of the spaceship and its speed, along with methods including update() to move the spaceship in the screen. The game is over when the spaceship collides with obstacles or enermies.
 
 
-* **Enemies [Yuxin]** - A class that defines the enermies that emerge on the other side of the screen and can be shoot by the plane. It contains the image and its location and speed, along with methods including update() to move forward. 
+* **Enemies [Yuxin]** - A class that defines the enermies that emerge on the right side of the screen and can be shot by the spaceship. It contains the image and its location and speed, along with methods including update() to move towards left of the screen. 
 
 
-* **Bullets [Yuxin]** - A class that defines the bullets shoot by the plane. It contains the image, its location and speed, along with the method update() to move forward. 
+* **Bullets [Yuxin]** - A class that defines the bullets shot by the spaceship. It contains the image, its location and speed, along with the method update() to move towards right of the screen. 
 
 
-* **Rocks [Yuxin]** - A class that defines the rocks coming from the other side of the screen. Rocks can not be shoot and the player has to avoid running into them. It consists of the image, the location, speed and update() method.
+* **Rocks [Yuxin]** - A class that defines the rocks coming from the right side of the screen. Rocks can not be shot and the player has to avoid running into them. It consists of the image, the location, speed and update() method.
 
-* **ScoreData [Yuxin]** - A class that defines the best score record. It contains the file used to store score data, the best score read from the file and update() method to update the best record in the file .
+* **ScoreData [Yuxin]** - A class that defines the best score record. It contains the file used to store score data, and the best score is read from the file and the  update() method is used to update the best record in the file .
 
-* **GameMenu [Jinhua, Runzhuo]** - A class that defines the title screen, where users can interact with start button, help button and quit button. It is able to track the mouse and keyboard movement and inputs. Start button initializes the game and quit button will terminate the game process.
+* **GameMenu [Jinhua, Runzhuo]** - A class that defines the title screen, where users can interact with "Start", "Help", and "Quit" button. It is able to track the mouse and keyboard movement and inputs. "Start" button initializes the game and "Quit" button will terminate the game process.
 
-* **HelpMenu [Jinhua, Runzhuo]** - A class that defines the help menu, by clicking on the help button, a page introducing the game and controls will show up for the user's reference.
+* **HelpMenu [Jinhua, Runzhuo]** - A class that defines the Help Menu. By clicking on the "Help" button, a page with game introduction and instructions will show up for the user's reference.
 
-
-* **MenuItems [Jinhua, Runzhuo]** - A class that defines the items appear in th etitle screen. It cantains background color, font and color of the buttons.
+* **MenuItems [Jinhua, Runzhuo]** - A class that defines the items appear in the title screen. It cantains background color, font and color of the buttons.
 
 ### Non-Standard Libraries and Modules Used
 
@@ -124,15 +123,15 @@ When the game is in progress, by clicking on the X on the upper right corner of 
 
 ### Game Testing
 
-When the Controller() is called by selecting the Start button on the game menu, the game will launch normally. The game includes the following features: move the spaceship, shoot bullets, increase enemy’s speed, and game over. Test on the four features will be discussed in following paragraphs. 
+When the Controller() is called by selecting the "Start" button on the game menu, the game will launch normally. The game includes the following features: move the spaceship, shoot bullets, increase enemy’s speed, and game over. Test on the four features will be discussed in following paragraphs. 
 
-First, we press each of the four direction keys once, the spaceship moves and stops as expected. We then press and hold the direction keys, the spaceship keeps moving until the key is released. When the spaceship is moved all the way to the top, buttom or left edge of the game screen, it will not go beyond the edge. However, if it was moved to the right edge of the screen, it will appear on the left side of the screen. 
+First, we press each of the four direction keys once, the spaceship moves and stops as expected. We then press and hold the direction keys, the spaceship keeps moving until the key is released. When the spaceship is moved all the way to the top, buttom or left edge of the game screen, it will not go beyond the edge. However, if it was moved to the right edge of the screen, it will appear on the left side of the screen.
 
-As the movement of the spaceship is tested, we continue the game and test the shooting function. When blank space key is pressed, one bullet shows up and moves forward along the x-axis from the spaceship. We then press the blank space key multiple times, every time it is pressed, one bullet is launched. After that, we tested the bullet’s functions. We shoot bullets towards enemies. When a bullet hits an enemy, the enemy will disappear, then the bullet keeps moving until it hit the right edge of the screen and disappear. The score indicator increase by 1 every time an enemy is destroyed. Then we shoot bullets towards comets, comets will not be destroyed upon the collision with a bullet. 
+As the movement of the spaceship is tested, we continue the game and test the shooting function. When blank space key is pressed, one bullet shows up and moves forward along the x-axis from the spaceship. We then press the blank space key multiple times, every time it is pressed, one bullet is launched. After that, we tested the bullet’s functions. We shoot bullets towards enemies. When a bullet hits an enemy, the enemy and the bullet will both disappear. The bullet that does not hit the enemy keeps moving until it hit the right edge of the screen and disappear. The score indicator increases by 2 every time an enemy is destroyed. Then we shoot bullets towards comets, comets will not be destroyed upon the collision with a bullet. 
 
-Then we try to reach 30 points in the game. After the player’s score reaches 30, the speed of enemies and comets will increase. The speed of enemies and comet will increase further when the player’s score reaches 50 and 75.
+Then we try to reach 30 seconds in the game. After the player’s game time reaches 30 seconds, the speed of enemies and comets will increase. The speed of enemies and comet will increase further when the player’s score reaches 50 and 75 seconds.
 
-Finally, we test the Game Over functions. The game has no win state. Once the spaceship collides with a comet or an enemy, the game is over. We move the spaceship towards a comet and touches it, the Game Over screen shows up along with the player’s score and the player’s best score in this game. The Game Over screen will stay for 2 seconds. Then the program is re-initialized, the player is sent back to the menu screen. 
+Finally, we test the Game Over functions. The game has no win state. Once the spaceship collides with a comet or an enemy, the game is over. We move the spaceship towards a comet and touches it, the Game Over screen shows up along with the player’s score and the player’s best score in this game. The Game Over screen will stay for 3 seconds. Then the program is re-initialized, the player is sent back to the menu screen. 
 
 ## Acceptance Test Procedure
 
